@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Dr. Haluk Alacaklioglu - Advisory"
+version = "1.0.0"
+id = "artifacts/advisory-site"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22527
+
+[services.development]
+run = "pnpm --filter @workspace/advisory-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/advisory-site", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/advisory-site/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22527"
+BASE_PATH = "/"
