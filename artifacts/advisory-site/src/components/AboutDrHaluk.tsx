@@ -76,14 +76,16 @@ export function AboutDrHaluk() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:sticky lg:top-32"
+            className="flex items-start justify-center"
           >
-            <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:max-w-none">
-              <div className="absolute inset-0 bg-primary/10 mix-blend-multiply translate-x-4 translate-y-4" />
-              <img 
-                src={drHalukPhoto} 
-                alt="Dr. Haluk Alacaklioglu" 
-                className="w-full h-full object-cover shadow-2xl relative z-10"
+            <div className="relative w-full max-w-sm lg:max-w-md">
+              {/* decorative offset shadow */}
+              <div className="absolute inset-0 bg-primary/15 translate-x-5 translate-y-5" />
+              <img
+                src={drHalukPhoto}
+                alt="Dr. Haluk Alacaklioglu"
+                className="relative z-10 w-full h-auto object-cover shadow-2xl"
+                style={{ aspectRatio: "3/4", objectPosition: "top center" }}
               />
             </div>
           </motion.div>
