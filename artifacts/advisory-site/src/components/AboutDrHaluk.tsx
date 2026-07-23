@@ -1,4 +1,4 @@
-import drHalukPhoto from "@assets/image_1784746982546.png";
+import drHalukPhoto from "@assets/image_1784788641739.png";
 
 export function AboutDrHaluk() {
   const scrollTo = (id: string) => {
