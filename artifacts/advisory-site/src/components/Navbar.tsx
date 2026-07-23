@@ -1,80 +1,109 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const scrollTo = (id: string) => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
+  const navLinks = [
+    { label: "Home", action: () => window.scrollTo({ top: 0, behavior: "smooth" }) },
+    { label: "About", action: () => scrollTo("about") },
+    { label: "Services", action: () => scrollTo("services") },
+    { label: "Insights", action: () => scrollTo("experience") },
+    { label: "Contact", action: () => scrollTo("contact") },
+  ];
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
-      }`}
-    >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span 
-            className="text-xl md:text-2xl font-serif font-semibold tracking-tight cursor-pointer" 
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
-            Dr. Haluk Alacaklioglu
-          </span>
-        </div>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
-          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="hover:text-primary transition-colors">Home</button>
-          <button onClick={() => scrollTo("services")} className="hover:text-primary transition-colors">Services</button>
-          <button onClick={() => scrollTo("experience")} className="hover:text-primary transition-colors">Insights</button>
-          <button onClick={() => scrollTo("about")} className="hover:text-primary transition-colors">About</button>
-          <button onClick={() => scrollTo("contact")} className="hover:text-primary transition-colors">Contact</button>
-          <Button 
-            className="ml-4 rounded-none font-serif tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-            onClick={() => scrollTo("contact")}
-          >
-            Book Now
-          </Button>
-        </div>
-
-        {/* Mobile Toggle */}
-        <div className="md:hidden">
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2">
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+    <>
+      {/* ── Top credential strip ── */}
+      <div className="bg-[hsl(0,20%,40%)] text-white text-xs tracking-widest uppercase text-center py-2 px-4 font-sans hidden md:block">
+        Family Business &amp; Board Governance Expert Advisor &nbsp;·&nbsp; Since 1989
+        &nbsp;·&nbsp; 30+ Countries &nbsp;·&nbsp; 500+ Clients
       </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-t border-border p-6 flex flex-col gap-4 shadow-xl">
-          <button onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); setMobileMenuOpen(false); }} className="text-left py-2 hover:text-primary">Home</button>
-          <button onClick={() => scrollTo("services")} className="text-left py-2 hover:text-primary">Services</button>
-          <button onClick={() => scrollTo("experience")} className="text-left py-2 hover:text-primary">Insights</button>
-          <button onClick={() => scrollTo("about")} className="text-left py-2 hover:text-primary">About</button>
-          <button onClick={() => scrollTo("contact")} className="text-left py-2 hover:text-primary">Contact</button>
-          <Button 
-            className="mt-4 rounded-none font-serif tracking-wide w-full"
-            onClick={() => scrollTo("contact")}
+      {/* ── Main banner ── */}
+      <header
+        className={`sticky top-0 z-50 bg-[hsl(33,31%,96%)] border-b transition-shadow duration-300 ${
+          scrolled ? "shadow-md border-[hsl(30,18%,80%)]" : "border-[hsl(30,18%,88%)]"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
+          {/* Logo / Name */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="font-serif text-lg md:text-xl font-semibold text-[hsl(0,0%,17%)] tracking-tight whitespace-nowrap hover:text-[hsl(0,20%,40%)] transition-colors"
+            data-testid="navbar-logo"
           >
-            Book Now
-          </Button>
+            Dr. Haluk Alacaklioglu
+          </button>
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[hsl(0,0%,30%)] tracking-wide">
+            {navLinks.map((link) => (
+              <button
+                key={link.label}
+                onClick={link.action}
+                className="relative group py-1 hover:text-[hsl(0,20%,40%)] transition-colors"
+                data-testid={`nav-${link.label.toLowerCase()}`}
+              >
+                {link.label}
+                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[hsl(0,20%,47%)] group-hover:w-full transition-all duration-200" />
+              </button>
+            ))}
+
+            <button
+              onClick={() => scrollTo("contact")}
+              className="ml-2 px-5 py-2 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
+              data-testid="nav-book-now"
+            >
+              Book Now
+            </button>
+          </nav>
+
+          {/* Mobile toggle */}
+          <button
+            className="md:hidden p-2 text-[hsl(0,0%,17%)]"
+            onClick={() => setMobileMenuOpen((v) => !v)}
+            aria-label="Toggle menu"
+            data-testid="mobile-menu-toggle"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-[hsl(33,31%,96%)] border-t border-[hsl(30,18%,85%)] px-6 py-5 flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <button
+                key={link.label}
+                onClick={link.action}
+                className="text-left py-3 text-sm font-medium text-[hsl(0,0%,25%)] border-b border-[hsl(30,18%,90%)] last:border-0 hover:text-[hsl(0,20%,40%)] transition-colors"
+              >
+                {link.label}
+              </button>
+            ))}
+            <button
+              onClick={() => scrollTo("contact")}
+              className="mt-4 py-3 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase text-center hover:bg-[hsl(0,20%,33%)] transition-colors"
+            >
+              Book Now
+            </button>
+          </div>
+        )}
+      </header>
+    </>
   );
 }

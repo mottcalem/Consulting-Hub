@@ -1,61 +1,87 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 
 export function Hero() {
   const scrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-24 pb-16 md:pt-0 md:pb-0">
-      {/* Background Image */}
+    <section className="relative h-[88vh] min-h-[560px] flex flex-col">
+      {/* Full-bleed background photo */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/40 z-10 mix-blend-multiply" />
-        <img 
-          src="/attached_assets/generated_images/hero_background.jpg" 
-          alt="Executive Boardroom" 
-          className="w-full h-full object-cover"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80";
-          }}
+        <img
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+          alt="Executive boardroom"
+          className="w-full h-full object-cover object-center"
         />
+        {/* Gradient overlay: dark left, lighter right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/50 to-black/20" />
       </div>
 
-      <div className="container relative z-20 mx-auto px-6 h-full flex items-center">
-        <div className="max-w-3xl bg-foreground/90 text-background p-10 md:p-16 backdrop-blur-sm border-l-4 border-primary">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight mb-6">
-              Globally acclaimed advisory support for business-owning families, boards, and multi-generational enterprises.
-            </h1>
-            <p className="text-lg md:text-xl text-background/80 font-light leading-relaxed mb-10 max-w-2xl">
-              Since 1989, serving clients across 4 continents and more than 30 countries with strategic counsel grounded in governance, succession, and leadership continuity.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
-                className="rounded-none font-serif text-lg tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 h-14 px-8"
-                onClick={() => scrollTo("contact")}
-              >
-                Book Now
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="rounded-none font-serif text-lg tracking-wide border-background/30 text-foreground hover:bg-background hover:text-foreground h-14 px-8 bg-background/10 backdrop-blur-md"
-                onClick={() => scrollTo("services")}
-              >
-                Explore Services
-              </Button>
+      {/* Content */}
+      <div className="relative z-10 flex flex-col justify-center h-full max-w-7xl mx-auto px-6 lg:px-10 py-16">
+        <motion.div
+          className="max-w-2xl"
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.85, ease: "easeOut" }}
+        >
+          {/* Eyebrow */}
+          <p className="text-xs font-sans uppercase tracking-[0.25em] text-white/60 mb-5">
+            Trusted Advisory
+          </p>
+
+          {/* Heading */}
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.4rem] leading-[1.12] font-semibold text-white mb-6">
+            Family Business and Board Governance Expert Advisor
+          </h1>
+
+          {/* Sub */}
+          <p className="font-sans text-base md:text-lg text-white/75 leading-relaxed mb-10 max-w-xl">
+            Globally acclaimed advisory support for business-owning families, boards, and
+            multi-generational enterprises. Since 1989, serving clients across 4 continents
+            and more than 30 countries with strategic counsel grounded in governance,
+            succession, and leadership continuity.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={() => scrollTo("contact")}
+              className="px-8 py-4 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
+              data-testid="hero-book-now"
+            >
+              Book Now
+            </button>
+            <button
+              onClick={() => scrollTo("services")}
+              className="px-8 py-4 border border-white/50 text-white font-serif text-sm tracking-widest uppercase hover:bg-white/10 transition-colors backdrop-blur-sm"
+              data-testid="hero-explore-services"
+            >
+              Explore Services
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Bottom stat pills */}
+        <motion.div
+          className="absolute bottom-10 left-6 lg:left-10 flex flex-wrap gap-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.9, delay: 0.5 }}
+        >
+          {[
+            { value: "$2B+", label: "Assets Advised" },
+            { value: "500+", label: "Clients Served" },
+            { value: "30+", label: "Countries" },
+          ].map((stat) => (
+            <div key={stat.label} className="text-white">
+              <span className="font-serif text-2xl font-semibold block">{stat.value}</span>
+              <span className="font-sans text-xs uppercase tracking-widest text-white/55">{stat.label}</span>
             </div>
-          </motion.div>
-        </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
