@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Testimonial() {
+  const { t } = useLanguage();
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -18,47 +21,27 @@ export function Testimonial() {
         >
           <div>
             <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
-              Why Work With Me
+              {t.testimonial.eyebrow}
             </span>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6 leading-tight">
-              Experience matters, but no two family businesses are alike.
+              {t.testimonial.heading}
             </h2>
             <p className="text-lg text-foreground/75 font-light leading-relaxed mb-6">
-              Lasting governance begins with understanding each family's culture, relationships,
-              ownership structure, and business dynamics.
+              {t.testimonial.p1}
             </p>
             <p className="text-base text-foreground/65 font-light leading-relaxed mb-10">
-              That is where an advisor with many years of hands-on experience helping families
-              like yours can make a real difference. My work is always grounded in your specific
-              situation — not in standard templates.
+              {t.testimonial.p2}
             </p>
             <button
               onClick={() => scrollTo("contact")}
               className="px-8 py-4 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
             >
-              Request a Confidential Discussion
+              {t.testimonial.cta}
             </button>
           </div>
 
           <div className="flex flex-col gap-6">
-            {[
-              {
-                label: "Cross-Cultural Experience",
-                text: "Advising family businesses across five continents with a deep understanding of diverse ownership cultures and governance contexts.",
-              },
-              {
-                label: "Academic Rigour",
-                text: "PhD in Family Business Governance; Harvard Business School MBA with Honors. Theory grounded in practice.",
-              },
-              {
-                label: "Senior Executive Background",
-                text: "10+ years in international executive roles at P&G and Philip Morris. Former Managing Partner, Egon Zehnder International.",
-              },
-              {
-                label: "Institution Builder",
-                text: "Founding Chairman of Turkey's Corporate Governance Association (COGAT) and the Board Directors Association (BDA).",
-              },
-            ].map((item, idx) => (
+            {t.testimonial.items.map((item, idx) => (
               <div key={idx} className="flex gap-4 p-5 border border-border bg-background">
                 <div className="w-1 bg-primary flex-shrink-0 rounded-full" />
                 <div>

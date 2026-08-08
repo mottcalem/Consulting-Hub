@@ -1,34 +1,14 @@
 import { motion } from "framer-motion";
-import successionImg from "@images/bbb.jpg";
+import successionImg from "@images/4.jpg";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function SuccessionSection() {
+  const { t } = useLanguage();
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
-
-  const topics = [
-    {
-      title: "Leadership Succession Planning",
-      desc: "Designing a structured, practical process to identify, prepare, and transition future leaders — within the family or alongside non-family executives.",
-    },
-    {
-      title: "Ownership Succession",
-      desc: "Clarifying how ownership will be transferred, structured, and governed across generations in a way that is fair, clear, and sustainable.",
-    },
-    {
-      title: "Next-Generation Development",
-      desc: "Preparing future shareholders and potential leaders through education, coaching, and structured career pathways within and outside the business.",
-    },
-    {
-      title: "Leadership Selection",
-      desc: "Establishing objective, fair processes for evaluating and selecting family members for leadership roles — based on competence and readiness.",
-    },
-    {
-      title: "Intergenerational Transition",
-      desc: "Managing the transition between generations thoughtfully — addressing timing, authority, relationships, and continuity of family values.",
-    },
-  ];
 
   return (
     <section id="succession" className="py-24 md:py-32 bg-background">
@@ -45,7 +25,7 @@ export function SuccessionSection() {
           >
             <img
               src={successionImg}
-              alt="Succession and next-generation development for family businesses"
+              alt={t.succession.imgAlt}
               className="object-cover w-full h-full"
               onError={(e) => {
                 (e.target as HTMLImageElement).src =
@@ -63,22 +43,20 @@ export function SuccessionSection() {
             transition={{ duration: 0.7 }}
           >
             <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
-              Succession & Next-Generation Development
+              {t.succession.eyebrow}
             </span>
             <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-4 leading-tight">
-              Preparing the Next Generation to Lead with Confidence
+              {t.succession.heading}
             </h2>
             <p className="text-lg text-foreground/70 font-light leading-relaxed mb-4">
-              Preparing the next generation to lead, own, and steward the family enterprise with confidence.
+              {t.succession.p1}
             </p>
             <p className="text-base text-foreground/65 font-light leading-relaxed mb-10">
-              A successful transition is not simply about transferring ownership. It is about preparing
-              people, clarifying responsibilities, and creating the governance structures that allow the
-              enterprise to thrive.
+              {t.succession.p2}
             </p>
 
             <div className="flex flex-col gap-6">
-              {topics.map((topic, idx) => (
+              {t.succession.topics.map((topic, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 12 }}
@@ -101,7 +79,7 @@ export function SuccessionSection() {
                 onClick={() => scrollTo("contact")}
                 className="px-8 py-4 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
               >
-                Discuss Succession Planning
+                {t.succession.cta}
               </button>
             </div>
           </motion.div>

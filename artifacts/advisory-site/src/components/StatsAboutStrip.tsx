@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import drHalukPhoto from "@assets/image_1784788641739.png";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function StatsAboutStrip() {
+  const { t } = useLanguage();
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -19,39 +22,29 @@ export function StatsAboutStrip() {
             className="order-2 lg:order-1"
           >
             <span className="text-primary font-bold tracking-widest uppercase text-sm mb-6 block">
-              About Dr. Haluk Alacaklıoğlu
+              {t.statsStrip.eyebrow}
             </span>
             <p className="text-lg text-foreground/80 leading-relaxed font-light mb-8">
-              Dr. Haluk Alacaklıoğlu, PhD, is a pioneer in cross-cultural family business governance.
-              Since 2000, he has advised hundreds of family businesses across five continents on family
-              governance, succession, ownership, and board effectiveness.
+              {t.statsStrip.p1}
             </p>
             <p className="text-base text-foreground/70 leading-relaxed font-light mb-10">
-              His work draws on a rare combination of senior international executive experience,
-              deep academic grounding, and more than two decades of hands-on advisory practice
-              with business-owning families.
+              {t.statsStrip.p2}
             </p>
 
             <button
               onClick={() => scrollTo("contact")}
               className="px-8 py-4 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
             >
-              Request a Confidential Discussion
+              {t.statsStrip.cta}
             </button>
 
             <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-border">
-              <div>
-                <div className="text-3xl md:text-4xl font-serif text-primary mb-2">2000</div>
-                <div className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Practice Founded</div>
-              </div>
-              <div>
-                <div className="text-3xl md:text-4xl font-serif text-primary mb-2">5</div>
-                <div className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Continents</div>
-              </div>
-              <div>
-                <div className="text-3xl md:text-4xl font-serif text-primary mb-2">100s</div>
-                <div className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Families Advised</div>
-              </div>
+              {t.statsStrip.stats.map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-3xl md:text-4xl font-serif text-primary mb-2">{stat.value}</div>
+                  <div className="text-xs font-medium tracking-wide text-muted-foreground uppercase">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </motion.div>
 
@@ -64,7 +57,7 @@ export function StatsAboutStrip() {
           >
             <img
               src={drHalukPhoto}
-              alt="Dr. Haluk Alacaklıoğlu — Family Business Governance Advisor"
+              alt={t.statsStrip.imgAlt}
               className="object-cover w-full h-full"
               onError={(e) => {
                 (e.target as HTMLImageElement).src =

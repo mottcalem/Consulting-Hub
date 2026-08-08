@@ -1,44 +1,13 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function BoardGovernanceSection() {
+  const { t } = useLanguage();
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
-
-  const topics = [
-    {
-      heading: "Professionalising the Business",
-      question: "How can we professionalise the firm without losing our family values and entrepreneurial spirit?",
-      items: [
-        "Governance structures that preserve agility",
-        "Accountability without bureaucracy",
-        "Family values embedded in business systems",
-        "Recruiting and retaining non-family professionals",
-      ],
-    },
-    {
-      heading: "Board Effectiveness",
-      question: "How can we make the board genuinely effective, performance-focused, and aligned with global best practices?",
-      items: [
-        "Board structure and composition",
-        "Board independence",
-        "Board agendas and committees",
-        "Board performance evaluation",
-        "Accountability and decision-making",
-      ],
-    },
-    {
-      heading: "Family, Shareholders & Board",
-      question: "How should the family council, shareholders, and board of directors work and communicate together?",
-      items: [
-        "Family council / shareholder / board relationships",
-        "Clear mandates and communication protocols",
-        "Governance alignment at each level",
-        "Managing differences of view constructively",
-      ],
-    },
-  ];
 
   return (
     <section id="board" className="py-24 md:py-32 bg-card border-t border-border">
@@ -51,19 +20,18 @@ export function BoardGovernanceSection() {
           className="mb-16"
         >
           <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
-            Business & Board Governance
+            {t.boardGovernance.eyebrow}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif text-foreground max-w-3xl leading-tight mb-4">
-            Professional Governance for Stronger Decisions and Long-Term Performance
+            {t.boardGovernance.heading}
           </h2>
           <p className="text-lg text-foreground/70 font-light max-w-2xl leading-relaxed">
-            Building governance structures that professionalise the business while preserving the
-            family's values, entrepreneurial spirit, and long-term vision.
+            {t.boardGovernance.intro}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {topics.map((topic, idx) => (
+          {t.boardGovernance.topics.map((topic, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
@@ -98,24 +66,13 @@ export function BoardGovernanceSection() {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div>
-              <h3 className="text-2xl font-serif mb-4">Board Governance Model</h3>
+              <h3 className="text-2xl font-serif mb-4">{t.boardGovernance.model.heading}</h3>
               <p className="text-background/70 font-light leading-relaxed text-sm">
-                Effective board governance for family businesses requires balancing the board's
-                independence with an understanding of family ownership dynamics. The right model
-                depends on the business's stage of development and the family's governance maturity.
+                {t.boardGovernance.model.desc}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              {[
-                "Board structure",
-                "Board composition",
-                "Board independence",
-                "Board agenda",
-                "Board committees",
-                "Performance evaluation",
-                "Accountability",
-                "Decision-making clarity",
-              ].map((item) => (
+              {t.boardGovernance.model.pillars.map((item) => (
                 <div key={item} className="flex items-center gap-2 text-sm text-background/70 font-light">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                   {item}
@@ -130,7 +87,7 @@ export function BoardGovernanceSection() {
             onClick={() => scrollTo("contact")}
             className="px-10 py-4 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
           >
-            Discuss Your Board Governance Priorities
+            {t.boardGovernance.cta}
           </button>
         </div>
       </div>

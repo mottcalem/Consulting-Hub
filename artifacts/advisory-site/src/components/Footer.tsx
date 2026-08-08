@@ -1,6 +1,9 @@
 import { SiWhatsapp } from "react-icons/si";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -17,28 +20,22 @@ export function Footer() {
           <div>
             <h2 className="text-xl font-serif mb-3">Dr. Haluk Alacaklıoğlu</h2>
             <p className="text-background/50 font-light text-sm leading-relaxed mb-2">
-              Family Business Governance Advisor
+              {t.footer.tagline}
             </p>
             <p className="text-background/40 font-light text-sm leading-relaxed">
-              Advisory practice since 2000. Family governance, succession, ownership,
-              and board effectiveness across five continents.
+              {t.footer.desc}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <p className="text-background/40 text-xs font-medium tracking-widest uppercase mb-4">Navigation</p>
+            <p className="text-background/40 text-xs font-medium tracking-widest uppercase mb-4">
+              {t.footer.navLabel}
+            </p>
             <div className="flex flex-col gap-3">
-              {[
-                { label: "About", anchor: "about" },
-                { label: "How I Help", anchor: "services" },
-                { label: "Family & Shareholder Governance", anchor: "governance" },
-                { label: "Succession & Next Generation", anchor: "succession" },
-                { label: "Business & Board Governance", anchor: "board" },
-                { label: "Contact", anchor: "contact" },
-              ].map((item) => (
+              {t.footer.navLinks.map((item) => (
                 <button
-                  key={item.label}
+                  key={item.anchor}
                   onClick={() => scrollTo(item.anchor)}
                   className="text-background/65 hover:text-white transition-colors text-left text-sm font-light"
                 >
@@ -50,15 +47,17 @@ export function Footer() {
 
           {/* CTA */}
           <div>
-            <p className="text-background/40 text-xs font-medium tracking-widest uppercase mb-4">Contact</p>
+            <p className="text-background/40 text-xs font-medium tracking-widest uppercase mb-4">
+              {t.footer.contactLabel}
+            </p>
             <p className="text-background/60 font-light text-sm leading-relaxed mb-6">
-              For a confidential preliminary discussion about your family business priorities.
+              {t.footer.contactDesc}
             </p>
             <button
               onClick={() => scrollTo("contact")}
               className="mb-4 w-full py-3 bg-[hsl(0,20%,40%)] text-white font-serif text-xs tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors text-center"
             >
-              Request a Confidential Discussion
+              {t.footer.ctaBtn}
             </button>
             <a
               href="https://wa.me/905321234567"
@@ -74,10 +73,10 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-background/15 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-background/30 text-xs font-light">
-            &copy; {new Date().getFullYear()} Dr. Haluk Alacaklıoğlu. All rights reserved.
+            &copy; {new Date().getFullYear()} {t.footer.copyright}
           </p>
           <p className="text-background/25 text-xs font-light">
-            FGB — Family Business Governance, LLP · Surrey, UK
+            {t.footer.firm}
           </p>
         </div>
       </div>

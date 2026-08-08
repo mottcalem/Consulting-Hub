@@ -23,18 +23,22 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Loader2 } from "lucide-react";
-
-const formSchema = z.object({
-  fullName: z.string().min(2, "Full name is required"),
-  email: z.string().email("Please enter a valid email address"),
-  company: z.string().optional(),
-  position: z.string().optional(),
-  country: z.string().optional(),
-  areaOfInterest: z.string().optional(),
-  message: z.string().optional(),
-});
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function ContactForm() {
+  const { t } = useLanguage();
+  const f = t.contact.fields;
+
+  const formSchema = z.object({
+    fullName: z.string().min(2, f.errors.nameRequired),
+    email: z.string().email(f.errors.emailInvalid),
+    company: z.string().optional(),
+    position: z.string().optional(),
+    country: z.string().optional(),
+    areaOfInterest: z.string().optional(),
+    message: z.string().optional(),
+  });
+
   const [isSuccess, setIsSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -59,6 +63,11 @@ export function ContactForm() {
     }, 1000);
   }
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section id="contact" className="py-24 md:py-32 bg-[hsl(33,31%,93%)]">
       <div className="container mx-auto px-6">
@@ -72,36 +81,20 @@ export function ContactForm() {
             transition={{ duration: 0.7 }}
           >
             <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
-              Contact
+              {t.contact.eyebrow}
             </span>
             <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-6 leading-tight">
-              Request a Confidential Preliminary Discussion
+              {t.contact.heading}
             </h2>
             <p className="text-base text-foreground/70 font-light leading-relaxed mb-4">
-              Many families contact me when they need clarity around family and shareholder governance,
-              succession and next-generation development, or business and board governance.
+              {t.contact.p1}
             </p>
             <p className="text-base text-foreground/70 font-light leading-relaxed mb-10">
-              A confidential first conversation can help clarify your priorities, identify where
-              governance may be creating risk or delay, and determine whether my advisory support
-              could be useful.
+              {t.contact.p2}
             </p>
 
             <div className="flex flex-col gap-5 mb-10">
-              {[
-                {
-                  label: "Family & Shareholder Governance",
-                  text: "Family constitutions, ownership structure, shareholder agreements, employment policies.",
-                },
-                {
-                  label: "Succession & Next-Generation",
-                  text: "Leadership succession, ownership transition, next-generation development and preparation.",
-                },
-                {
-                  label: "Business & Board Governance",
-                  text: "Board effectiveness, board structure, professionalisation, non-family executives.",
-                },
-              ].map((item, idx) => (
+              {t.contact.areas.map((item, idx) => (
                 <div key={idx} className="flex gap-4">
                   <div className="w-1 bg-primary flex-shrink-0 rounded-full" />
                   <div>
@@ -119,7 +112,7 @@ export function ContactForm() {
               className="inline-flex items-center gap-3 bg-[#25D366] text-white px-7 py-3.5 text-sm font-medium hover:bg-[#20bd5a] transition-colors"
             >
               <SiWhatsapp size={20} />
-              Contact via WhatsApp
+              {t.contact.whatsapp}
             </a>
           </motion.div>
 
@@ -138,16 +131,16 @@ export function ContactForm() {
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </div>
-                <h3 className="text-2xl font-serif mb-4">Thank You</h3>
+                <h3 className="text-2xl font-serif mb-4">{t.contact.successTitle}</h3>
                 <p className="text-muted-foreground font-light">
-                  Your message has been received. I will be in touch shortly.
+                  {t.contact.successMsg}
                 </p>
                 <Button
                   variant="outline"
                   className="mt-8 rounded-none border-primary text-primary"
                   onClick={() => setIsSuccess(false)}
                 >
-                  Send Another Message
+                  {t.contact.sendAnother}
                 </Button>
               </div>
             ) : (
@@ -159,9 +152,9 @@ export function ContactForm() {
                       name="fullName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Name *</FormLabel>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.name} *</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your full name" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                            <Input placeholder={f.namePlaceholder} className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -172,9 +165,9 @@ export function ContactForm() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Email *</FormLabel>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.email} *</FormLabel>
                           <FormControl>
-                            <Input placeholder="your@email.com" type="email" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                            <Input placeholder={f.emailPlaceholder} type="email" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -188,9 +181,9 @@ export function ContactForm() {
                       name="company"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Company</FormLabel>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.company}</FormLabel>
                           <FormControl>
-                            <Input placeholder="Family business / organisation" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                            <Input placeholder={f.companyPlaceholder} className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -201,9 +194,9 @@ export function ContactForm() {
                       name="position"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Position</FormLabel>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.position}</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your role or position" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                            <Input placeholder={f.positionPlaceholder} className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -217,9 +210,9 @@ export function ContactForm() {
                       name="country"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Country</FormLabel>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.country}</FormLabel>
                           <FormControl>
-                            <Input placeholder="Country" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                            <Input placeholder={f.countryPlaceholder} className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -230,20 +223,17 @@ export function ContactForm() {
                       name="areaOfInterest"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Area of Interest</FormLabel>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.interest}</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger className="rounded-none bg-background border-border focus:ring-primary">
-                                <SelectValue placeholder="Select area" />
+                                <SelectValue placeholder={f.interestPlaceholder} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent className="rounded-none">
-                              <SelectItem value="family-governance">Family & Shareholder Governance</SelectItem>
-                              <SelectItem value="succession">Succession Planning</SelectItem>
-                              <SelectItem value="next-generation">Next-Generation Development</SelectItem>
-                              <SelectItem value="board-governance">Business & Board Governance</SelectItem>
-                              <SelectItem value="family-constitution">Family Constitution</SelectItem>
-                              <SelectItem value="other">Other</SelectItem>
+                              {f.interestOptions.map((opt) => (
+                                <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                              ))}
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -257,10 +247,10 @@ export function ContactForm() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Message</FormLabel>
+                        <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.message}</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Briefly describe your situation or what you would like to discuss..."
+                            placeholder={f.messagePlaceholder}
                             className="rounded-none bg-background border-border min-h-[110px] focus-visible:ring-primary"
                             {...field}
                           />
@@ -271,7 +261,7 @@ export function ContactForm() {
                   />
 
                   <p className="text-xs text-muted-foreground font-light">
-                    Your information will be treated confidentially.
+                    {t.contact.confidentiality}
                   </p>
 
                   <Button
@@ -282,7 +272,7 @@ export function ContactForm() {
                     {isLoading ? (
                       <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                     ) : (
-                      "Request a Confidential Preliminary Discussion"
+                      t.contact.submitBtn
                     )}
                   </Button>
                 </form>

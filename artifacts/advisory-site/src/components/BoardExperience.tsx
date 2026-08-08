@@ -1,47 +1,13 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function BoardExperience() {
+  const { t } = useLanguage();
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
-
-  const governanceTopics = [
-    {
-      heading: "Ownership & Transition",
-      items: [
-        "How should ownership be structured and transferred to the next generation?",
-        "How should power and authority be shared across generations?",
-        "What should a shareholders' agreement include?",
-        "How can fair exit arrangements be created?",
-      ],
-    },
-    {
-      heading: "Family Constitution & Policies",
-      items: [
-        "Do we need a family constitution — and what should it establish?",
-        "What should our family employment policy be?",
-        "How should rewards and wealth be shared equitably?",
-      ],
-    },
-    {
-      heading: "Next-Generation Preparation",
-      items: [
-        "How should future owners be prepared and developed?",
-        "How should family members be selected and developed as business leaders?",
-        "How can career planning strengthen ownership responsibility?",
-      ],
-    },
-    {
-      heading: "Relationships & Conflict",
-      items: [
-        "How can communication and trust be strengthened across the family?",
-        "How should potential conflicts be managed before they escalate?",
-        "How should in-laws be approached?",
-        "How can family and business interests remain aligned over time?",
-      ],
-    },
-  ];
 
   return (
     <section id="governance" className="py-24 md:py-32 bg-primary text-primary-foreground">
@@ -54,19 +20,18 @@ export function BoardExperience() {
           className="mb-16"
         >
           <span className="text-primary-foreground/50 font-bold tracking-widest uppercase text-sm mb-4 block">
-            Family & Shareholder Governance
+            {t.boardExperience.eyebrow}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif max-w-3xl leading-tight">
-            Creating Clarity, Trust, and Responsible Ownership Across Generations
+            {t.boardExperience.heading}
           </h2>
           <p className="mt-6 text-lg text-primary-foreground/75 font-light leading-relaxed max-w-2xl">
-            Many of the most significant challenges facing family businesses arise not from the business
-            itself, but from the governance of the family's shared ownership.
+            {t.boardExperience.intro}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-primary-foreground/20 border border-primary-foreground/20">
-          {governanceTopics.map((topic, idx) => (
+          {t.boardExperience.topics.map((topic, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0 }}
@@ -99,7 +64,7 @@ export function BoardExperience() {
             onClick={() => scrollTo("contact")}
             className="px-10 py-4 bg-primary-foreground text-primary font-serif text-sm tracking-widest uppercase hover:bg-primary-foreground/90 transition-colors"
           >
-            Let's Discuss Your Family Business Priorities
+            {t.boardExperience.cta}
           </button>
         </motion.div>
       </div>
