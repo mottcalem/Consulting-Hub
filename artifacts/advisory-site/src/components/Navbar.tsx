@@ -18,10 +18,11 @@ export function Navbar() {
   };
 
   const navLinks = [
-    { label: "Home", action: () => window.scrollTo({ top: 0, behavior: "smooth" }) },
     { label: "About", action: () => scrollTo("about") },
     { label: "Services", action: () => scrollTo("services") },
-    { label: "Insights", action: () => scrollTo("experience") },
+    { label: "Governance", action: () => scrollTo("governance") },
+    { label: "Succession", action: () => scrollTo("succession") },
+    { label: "Board", action: () => scrollTo("board") },
     { label: "Contact", action: () => scrollTo("contact") },
   ];
 
@@ -29,8 +30,8 @@ export function Navbar() {
     <>
       {/* ── Top credential strip ── */}
       <div className="bg-[hsl(0,20%,40%)] text-white text-xs tracking-widest uppercase text-center py-2 px-4 font-sans hidden md:block">
-        Family Business &amp; Board Governance Expert Advisor &nbsp;·&nbsp; Since 1989
-        &nbsp;·&nbsp; 30+ Countries &nbsp;·&nbsp; 500+ Clients
+        Family Business Governance Advisor &nbsp;·&nbsp; Since 2000
+        &nbsp;·&nbsp; Five Continents &nbsp;·&nbsp; Hundreds of Family Businesses Advised
       </div>
 
       {/* ── Main banner ── */}
@@ -46,7 +47,7 @@ export function Navbar() {
             className="font-serif text-lg md:text-xl font-semibold text-[hsl(0,0%,17%)] tracking-tight whitespace-nowrap hover:text-[hsl(0,20%,40%)] transition-colors"
             data-testid="navbar-logo"
           >
-            Dr. Haluk Alacaklioglu
+            Dr. Haluk Alacaklıoğlu
           </button>
 
           {/* Desktop nav */}
@@ -66,9 +67,9 @@ export function Navbar() {
             <button
               onClick={() => scrollTo("contact")}
               className="ml-2 px-5 py-2 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
-              data-testid="nav-book-now"
+              data-testid="nav-contact-cta"
             >
-              Book Now
+              Get in Touch
             </button>
           </nav>
 
@@ -99,7 +100,7 @@ export function Navbar() {
               onClick={() => scrollTo("contact")}
               className="mt-4 py-3 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase text-center hover:bg-[hsl(0,20%,33%)] transition-colors"
             >
-              Book Now
+              Get in Touch
             </button>
           </div>
         )}

@@ -26,11 +26,11 @@ import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name is required"),
+  email: z.string().email("Please enter a valid email address"),
   company: z.string().optional(),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().optional(),
-  topic: z.string().optional(),
-  date: z.string().optional(),
+  position: z.string().optional(),
+  country: z.string().optional(),
+  areaOfInterest: z.string().optional(),
   message: z.string().optional(),
 });
 
@@ -42,18 +42,17 @@ export function ContactForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       fullName: "",
-      company: "",
       email: "",
-      phone: "",
-      topic: "",
-      date: "",
+      company: "",
+      position: "",
+      country: "",
+      areaOfInterest: "",
       message: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(_values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-    // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
       setIsSuccess(true);
@@ -61,9 +60,11 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-background">
+    <section id="contact" className="py-24 md:py-32 bg-[hsl(33,31%,93%)]">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+
+          {/* Left: context */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -73,24 +74,56 @@ export function ContactForm() {
             <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
               Contact
             </span>
-            <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-8">
-              Request an Appointment
+            <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-6 leading-tight">
+              Request a Confidential Preliminary Discussion
             </h2>
-            <p className="text-lg text-foreground/80 font-light leading-relaxed mb-12">
-              Begin with a confidential consultation. Fill out the form to request an introductory call, or reach us directly via WhatsApp.
+            <p className="text-base text-foreground/70 font-light leading-relaxed mb-4">
+              Many families contact me when they need clarity around family and shareholder governance,
+              succession and next-generation development, or business and board governance.
             </p>
-            
-            <a 
-              href="https://wa.me/905321234567" 
-              target="_blank" 
+            <p className="text-base text-foreground/70 font-light leading-relaxed mb-10">
+              A confidential first conversation can help clarify your priorities, identify where
+              governance may be creating risk or delay, and determine whether my advisory support
+              could be useful.
+            </p>
+
+            <div className="flex flex-col gap-5 mb-10">
+              {[
+                {
+                  label: "Family & Shareholder Governance",
+                  text: "Family constitutions, ownership structure, shareholder agreements, employment policies.",
+                },
+                {
+                  label: "Succession & Next-Generation",
+                  text: "Leadership succession, ownership transition, next-generation development and preparation.",
+                },
+                {
+                  label: "Business & Board Governance",
+                  text: "Board effectiveness, board structure, professionalisation, non-family executives.",
+                },
+              ].map((item, idx) => (
+                <div key={idx} className="flex gap-4">
+                  <div className="w-1 bg-primary flex-shrink-0 rounded-full" />
+                  <div>
+                    <p className="font-medium text-sm text-foreground">{item.label}</p>
+                    <p className="text-sm text-muted-foreground font-light">{item.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="https://wa.me/905321234567"
+              target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 text-lg font-medium hover:bg-[#20bd5a] transition-colors"
+              className="inline-flex items-center gap-3 bg-[#25D366] text-white px-7 py-3.5 text-sm font-medium hover:bg-[#20bd5a] transition-colors"
             >
-              <SiWhatsapp size={24} />
-              Chat on WhatsApp
+              <SiWhatsapp size={20} />
+              Contact via WhatsApp
             </a>
           </motion.div>
 
+          {/* Right: form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -105,49 +138,35 @@ export function ContactForm() {
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </div>
-                <h3 className="text-2xl font-serif mb-4">Request Received</h3>
-                <p className="text-muted-foreground">Thank you. We will be in touch shortly.</p>
-                <Button 
-                  variant="outline" 
+                <h3 className="text-2xl font-serif mb-4">Thank You</h3>
+                <p className="text-muted-foreground font-light">
+                  Your message has been received. I will be in touch shortly.
+                </p>
+                <Button
+                  variant="outline"
                   className="mt-8 rounded-none border-primary text-primary"
                   onClick={() => setIsSuccess(false)}
                 >
-                  Send Another
+                  Send Another Message
                 </Button>
               </div>
             ) : (
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                       control={form.control}
                       name="fullName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Full Name *</FormLabel>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Name *</FormLabel>
                           <FormControl>
-                            <Input placeholder="Jane Doe" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                            <Input placeholder="Your full name" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                    <FormField
-                      control={form.control}
-                      name="company"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Company/Organization</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Acme Corp" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField
                       control={form.control}
                       name="email"
@@ -155,20 +174,7 @@ export function ContactForm() {
                         <FormItem>
                           <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Email *</FormLabel>
                           <FormControl>
-                            <Input placeholder="jane@example.com" type="email" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Phone</FormLabel>
-                          <FormControl>
-                            <Input placeholder="+1 555 123 4567" type="tel" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                            <Input placeholder="your@email.com" type="email" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -176,40 +182,70 @@ export function ContactForm() {
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                       control={form.control}
-                      name="topic"
+                      name="company"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Topic of Inquiry</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger className="rounded-none bg-background border-border focus:ring-primary">
-                                <SelectValue placeholder="Select topic" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent className="rounded-none">
-                              <SelectItem value="family-governance">Family Governance</SelectItem>
-                              <SelectItem value="board-effectiveness">Board Effectiveness</SelectItem>
-                              <SelectItem value="succession-planning">Succession Planning</SelectItem>
-                              <SelectItem value="strategic-counsel">Strategic Counsel</SelectItem>
-                              <SelectItem value="other">Other</SelectItem>
-                            </SelectContent>
-                          </Select>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Company</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Family business / organisation" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                          </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
                     <FormField
                       control={form.control}
-                      name="date"
+                      name="position"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Preferred Date</FormLabel>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Position</FormLabel>
                           <FormControl>
-                            <Input type="date" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                            <Input placeholder="Your role or position" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
                           </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <FormField
+                      control={form.control}
+                      name="country"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Country</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Country" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="areaOfInterest"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Area of Interest</FormLabel>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="rounded-none bg-background border-border focus:ring-primary">
+                                <SelectValue placeholder="Select area" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="rounded-none">
+                              <SelectItem value="family-governance">Family & Shareholder Governance</SelectItem>
+                              <SelectItem value="succession">Succession Planning</SelectItem>
+                              <SelectItem value="next-generation">Next-Generation Development</SelectItem>
+                              <SelectItem value="board-governance">Business & Board Governance</SelectItem>
+                              <SelectItem value="family-constitution">Family Constitution</SelectItem>
+                              <SelectItem value="other">Other</SelectItem>
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -223,10 +259,10 @@ export function ContactForm() {
                       <FormItem>
                         <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">Message</FormLabel>
                         <FormControl>
-                          <Textarea 
-                            placeholder="Briefly describe your inquiry..." 
-                            className="rounded-none bg-background border-border min-h-[120px] focus-visible:ring-primary" 
-                            {...field} 
+                          <Textarea
+                            placeholder="Briefly describe your situation or what you would like to discuss..."
+                            className="rounded-none bg-background border-border min-h-[110px] focus-visible:ring-primary"
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage />
@@ -234,12 +270,20 @@ export function ContactForm() {
                     )}
                   />
 
-                  <Button 
-                    type="submit" 
-                    className="w-full rounded-none h-14 font-serif text-lg tracking-wide bg-primary text-primary-foreground hover:bg-primary/90"
+                  <p className="text-xs text-muted-foreground font-light">
+                    Your information will be treated confidentially.
+                  </p>
+
+                  <Button
+                    type="submit"
+                    className="w-full rounded-none h-13 font-serif tracking-wide bg-primary text-primary-foreground hover:bg-primary/90"
                     disabled={isLoading}
                   >
-                    {isLoading ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : "Request Appointment"}
+                    {isLoading ? (
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    ) : (
+                      "Request a Confidential Preliminary Discussion"
+                    )}
                   </Button>
                 </form>
               </Form>

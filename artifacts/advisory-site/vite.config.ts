@@ -9,6 +9,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, 'src'),
       '@assets': path.resolve(__dirname, '..', '..', 'attached_assets'),
+      '@images': path.resolve(__dirname, '..', '..', 'images'),
     },
     dedupe: ['react', 'react-dom'],
   },
