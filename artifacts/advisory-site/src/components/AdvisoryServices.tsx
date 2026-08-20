@@ -64,9 +64,11 @@ export function AdvisoryServices() {
                       {service.number}
                     </span>
                     <div>
-                      <h3 className="text-xl md:text-2xl font-serif text-foreground mb-3">
-                        {service.title}
-                      </h3>
+                      {service.title && (
+                        <h3 className="text-xl md:text-2xl font-serif text-foreground mb-3">
+                          {service.title}
+                        </h3>
+                      )}
                       <p className="text-muted-foreground leading-relaxed">{service.desc}</p>
                     </div>
                   </div>

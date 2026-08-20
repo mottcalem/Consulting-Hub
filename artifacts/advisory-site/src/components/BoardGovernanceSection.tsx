@@ -40,7 +40,9 @@ export function BoardGovernanceSection() {
               transition={{ duration: 0.5, delay: 0.12 * idx }}
               className="bg-background border border-border p-8"
             >
-              <h3 className="text-xl font-serif text-foreground mb-3">{topic.heading}</h3>
+              {topic.heading && (
+                <h3 className="text-xl font-serif text-foreground mb-3">{topic.heading}</h3>
+              )}
               <p className="text-sm text-muted-foreground font-light italic leading-relaxed mb-6 border-l-2 border-primary/30 pl-4">
                 {topic.question}
               </p>
@@ -55,32 +57,6 @@ export function BoardGovernanceSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Board governance pillars */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-foreground text-background p-10 md:p-12"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <div>
-              <h3 className="text-2xl font-serif mb-4">{t.boardGovernance.model.heading}</h3>
-              <p className="text-background/70 font-light leading-relaxed text-sm">
-                {t.boardGovernance.model.desc}
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              {t.boardGovernance.model.pillars.map((item) => (
-                <div key={item} className="flex items-center gap-2 text-sm text-background/70 font-light">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
 
         <div className="mt-10 text-center">
           <button

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
+import nextGenPhoto from "@/assets/next-gen-2.jpg";
 
 export function BoardExperience() {
   const { t } = useLanguage();
@@ -51,6 +52,21 @@ export function BoardExperience() {
               </ul>
             </motion.div>
           ))}
+          {(
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="min-h-72 md:min-h-full overflow-hidden bg-primary"
+            >
+              <img
+                src={nextGenPhoto}
+                alt="Gelecek nesil aile üyeleri birlikte çalışırken"
+                className="h-full min-h-72 w-full object-cover object-center"
+              />
+            </motion.div>
+          )}
         </div>
 
         <motion.div

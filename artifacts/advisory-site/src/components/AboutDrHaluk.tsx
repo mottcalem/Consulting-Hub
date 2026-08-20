@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import drHalukPhoto from "@assets/image_1784788641739.png";
+import drHalukPhoto from "@/assets/dr-haluk-elde-fincan.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export function AboutDrHaluk() {
@@ -32,12 +32,20 @@ export function AboutDrHaluk() {
             <p className="text-primary font-medium tracking-wide text-sm uppercase mb-8">
               {t.about.title}
             </p>
-            <p className="text-lg text-foreground/75 font-light leading-relaxed mb-5">
-              {t.about.p1}
-            </p>
-            <p className="text-base text-foreground/65 font-light leading-relaxed mb-12">
-              {t.about.p2}
-            </p>
+            <div className="max-w-3xl mb-14 space-y-6">
+              {t.about.paragraphs.map((paragraph, idx) => (
+                <p
+                  key={idx}
+                  className={`font-light leading-[1.85] ${
+                    idx === 0
+                      ? "text-lg text-foreground/80 border-l-2 border-primary/35 pl-5"
+                      : "text-base text-foreground/65"
+                  }`}
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
 
             {/* Timeline */}
             <div className="relative border-l border-primary/30 pl-8 flex flex-col gap-8">
@@ -92,7 +100,7 @@ export function AboutDrHaluk() {
               <img
                 src={drHalukPhoto}
                 alt={t.about.imgAlt}
-                className="w-full h-auto block"
+                className="w-full aspect-[4/5] object-cover object-center block"
                 style={{ boxShadow: "8px 8px 0 rgba(139,90,90,0.18)" }}
               />
               {/* Quote badge */}
