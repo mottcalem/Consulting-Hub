@@ -17,7 +17,7 @@ export function Testimonial() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+          className={`grid grid-cols-1 gap-16 items-center ${t.testimonial.items.length ? "lg:grid-cols-2" : "max-w-3xl mx-auto"}`}
         >
           <div>
             <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
@@ -40,7 +40,7 @@ export function Testimonial() {
             </button>
           </div>
 
-          <div className="flex flex-col gap-6">
+          {t.testimonial.items.length > 0 && <div className="flex flex-col gap-6">
             {t.testimonial.items.map((item, idx) => (
               <div key={idx} className="flex gap-4 p-5 border border-border bg-background">
                 <div className="w-1 bg-primary flex-shrink-0 rounded-full" />
@@ -50,7 +50,7 @@ export function Testimonial() {
                 </div>
               </div>
             ))}
-          </div>
+          </div>}
         </motion.div>
       </div>
     </section>

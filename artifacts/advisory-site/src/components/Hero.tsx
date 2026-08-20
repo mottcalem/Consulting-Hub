@@ -4,7 +4,7 @@ import heroImgMobile from "@images/bbb.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -48,7 +48,7 @@ export function Hero() {
           <p className="text-[10px] font-sans uppercase tracking-[0.22em] text-white/55 mb-3">
             {t.hero.eyebrow}
           </p>
-          <h1 className="font-serif text-[1.75rem] leading-[1.15] font-semibold text-white mb-5">
+          <h1 className={`font-serif leading-[1.15] font-semibold text-white mb-5 ${lang === "tr" ? "text-[1.55rem]" : "text-[1.75rem]"}`}>
             {t.hero.headline}
           </h1>
           <button
@@ -71,7 +71,7 @@ export function Hero() {
           <p className="text-xs font-sans uppercase tracking-[0.25em] text-white/60 mb-5">
             {t.hero.eyebrow}
           </p>
-          <h1 className="font-serif text-4xl lg:text-[3.2rem] leading-[1.12] font-semibold text-white mb-6">
+          <h1 className={`font-serif leading-[1.12] font-semibold text-white mb-6 ${lang === "tr" ? "text-4xl lg:text-[2.75rem]" : "text-4xl lg:text-[3.2rem]"}`}>
             {t.hero.headline}
           </h1>
           <p className="font-sans text-base md:text-lg text-white/75 leading-relaxed mb-10">
@@ -93,20 +93,6 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Stats — desktop only */}
-        <motion.div
-          className="absolute bottom-10 left-16 xl:left-24 flex flex-wrap gap-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.9, delay: 0.5 }}
-        >
-          {t.hero.stats.map((stat) => (
-            <div key={stat.label} className="text-white">
-              <span className="font-serif text-2xl font-semibold block">{stat.value}</span>
-              <span className="font-sans text-xs uppercase tracking-widest text-white/55">{stat.label}</span>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

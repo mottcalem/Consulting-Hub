@@ -146,8 +146,7 @@ export interface Translations {
     eyebrow: string;
     heading: string;
     title: string;
-    p1: string;
-    p2: string;
+    paragraphs: string[];
     cta: string;
     quote: string;
     imgAlt: string;

@@ -24,7 +24,6 @@ export function Navbar() {
     { label: t.nav.about, action: () => scrollTo("about") },
     { label: t.nav.services, action: () => scrollTo("services") },
     { label: t.nav.governance, action: () => scrollTo("governance") },
-    { label: t.nav.succession, action: () => scrollTo("succession") },
     { label: t.nav.board, action: () => scrollTo("board") },
     { label: t.nav.contact, action: () => scrollTo("contact") },
   ];

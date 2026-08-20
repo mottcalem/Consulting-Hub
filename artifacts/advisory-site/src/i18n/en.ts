@@ -3,7 +3,7 @@ import type { Translations } from "./types";
 export const en: Translations = {
   // ── NAVBAR ──────────────────────────────────────────────────────────
   nav: {
-    strip: "Family Business Governance Advisor · Since 2000 · Five Continents · Hundreds of Family Businesses Advised",
+    strip: "Trusted adviser to business families navigating succession, governance and board effectiveness.",
     about: "About",
     services: "Services",
     governance: "Governance",
@@ -15,11 +15,11 @@ export const en: Translations = {
 
   // ── HERO ────────────────────────────────────────────────────────────
   hero: {
-    eyebrow: "Family Business Governance Advisor",
+    eyebrow: "Trusted adviser to business families",
     headline:
-      "Build a Family Enterprise That Stays United, Well Governed, and Successful Across Generations.",
-    subheadline: "Helping family businesses create clarity, continuity, and confident decisions.",
-    ctaPrimary: "Discuss Your Priorities",
+      "Build a family enterprise that stays united, well governed, and successful across generations",
+    subheadline: "Dr. Haluk Alacaklioglu, PhD, is a pioneer in cross-cultural family business governance. Since 2000, he has advised hundreds of family businesses across five continents on family governance, succession, ownership, and board effectiveness.",
+    ctaPrimary: "Do not hesitate to call for a confidential preliminary discussion concerning your family's and company's priorities.",
     ctaSecondary: "How I Can Help",
     stats: [
       { value: "Since 2000", label: "Advisory Practice" },
@@ -31,35 +31,34 @@ export const en: Translations = {
   // ── ADVISORY SERVICES ───────────────────────────────────────────────
   services: {
     eyebrow: "How I Help",
-    heading: "How I Help Family Businesses Create Clarity, Continuity, and Confident Decisions",
-    intro:
-      "Every family business is different. My advisory support is tailored to your ownership structure, family relationships, and long-term priorities — not to a standard programme.",
-    cta: "Discuss Your Family Business Priorities",
+    heading: "How I help family businesses create clarity, continuity, and confident decisions",
+    intro: "Most families contact me when they need clarity in one of three areas: family and shareholder governance, succession and next-generation development, or business and board governance.",
+    cta: "Let us discuss your family business priorities.",
     items: [
       {
         number: "01",
-        title: "Family Protocols & Constitutions",
+        title: "",
         desc: "Create practical family protocols and constitutions that clarify expectations, guide shareholder conduct, and support responsible stewardship.",
       },
       {
         number: "02",
-        title: "Leadership Succession",
+        title: "",
         desc: "Prepare and implement a practical leadership succession plan so the business can thrive beyond the current generation.",
       },
       {
         number: "03",
-        title: "Next-Generation Development",
+        title: "",
         desc: "Educate and coach next-generation family members to become informed, engaged, and responsible shareholders.",
       },
       {
         number: "04",
-        title: "Family Business Board & Governance",
+        title: "",
         desc: "Build an effective family business board and governance system that turns shareholder vision into clear priorities, sound decisions, and accountable action.",
       },
       {
         number: "05",
-        title: "Governance Guidelines",
-        desc: "Establish governance guidelines tailored to the organisation and practical enough to be used in everyday decision-making.",
+        title: "",
+        desc: "Establish governance guidelines tailored to your organization and usable in decision making.",
       },
     ],
   },
@@ -148,43 +147,27 @@ export const en: Translations = {
   // ── BOARD EXPERIENCE (Family & Shareholder Governance) ──────────────
   boardExperience: {
     eyebrow: "Family & Shareholder Governance",
-    heading: "Creating Clarity, Trust, and Responsible Ownership Across Generations",
-    intro:
-      "Many of the most significant challenges facing family businesses arise not from the business itself, but from the governance of the family's shared ownership.",
-    cta: "Let's Discuss Your Family Business Priorities",
+    heading: "Which of these challenges is holding your family business back?",
+    intro: "Most families contact me when they need clarity in one of three areas: family and shareholder governance, succession and next-generation development, or business and board governance.",
+    cta: "Let us discuss your family business priorities.",
     topics: [
       {
-        heading: "Ownership & Transition",
+        heading: "FAMILY /SHAREHOLDER GOVERNANCE",
         items: [
-          "How should ownership be structured and transferred to the next generation?",
-          "How should power and authority be shared across generations?",
-          "What should a shareholders' agreement include?",
-          "How can fair exit arrangements be created?",
-        ],
-      },
-      {
-        heading: "Family Constitution & Policies",
-        items: [
-          "Do we need a family constitution — and what should it establish?",
-          "What should our family employment policy be?",
-          "How should rewards and wealth be shared equitably?",
-        ],
-      },
-      {
-        heading: "Next-Generation Preparation",
-        items: [
-          "How should future owners be prepared and developed?",
-          "How should family members be selected and developed as business leaders?",
-          "How can career planning strengthen ownership responsibility?",
-        ],
-      },
-      {
-        heading: "Relationships & Conflict",
-        items: [
-          "How can communication and trust be strengthened across the family?",
-          "How should potential conflicts be managed before they escalate?",
-          "How should in-laws be approached?",
-          "How can family and business interests remain aligned over time?",
+          "How can I uncover the expectations, hopes, ambitions, and concerns that shape my family’s decisions?",
+          "How should I transfer ownership to the next generation?",
+          "Do we need a family constitution? If so, what form best suits our needs, and what principles should it establish?",
+          "How can I best prepare the next generation as future owners and select and train the right family members as business leaders?",
+          "How should we share power and authority when we own and govern the business we inherit from the previous generation?",
+          "What should our family members’ employment policy be as the family grows? According to what criteria?",
+          "How shall we share and manage the rewards and wealth?",
+          "What policies and principles should our “Shareholders Agreement” include?",
+          "How should we approach in-laws for the benefit of our business and our family?",
+          "How can we strengthen communication and trust within our family and between the family and the business?",
+          "What training and development do the family members need to own and manage our assets and values in the best way? How can we obtain it?",
+          "How can we best approach the career planning of the next generation to develop a strong sense of ownership and responsibility?",
+          "How can we best manage the potential and real conflicts among us?",
+          "How can we create fair exit arrangements for shareholders who want to leave?                                                      …and other related issues…",
         ],
       },
     ],
@@ -224,45 +207,31 @@ export const en: Translations = {
 
   // ── BOARD GOVERNANCE SECTION ────────────────────────────────────────
   boardGovernance: {
-    eyebrow: "Business & Board Governance",
-    heading: "Professional Governance for Stronger Decisions and Long-Term Performance",
-    intro:
-      "Building governance structures that professionalise the business while preserving the family's values, entrepreneurial spirit, and long-term vision.",
-    cta: "Discuss Your Board Governance Priorities",
+    eyebrow: "Business Governance",
+    heading: "BUSINESS GOVERNANCE:",
+    intro: "Which of these challenges is holding your family business back?",
+    cta: "Let us discuss your family business priorities.",
     topics: [
       {
-        heading: "Professionalising the Business",
-        question:
-          "How can we professionalise the firm without losing our family values and entrepreneurial spirit?",
+        heading: "",
+        question: "Which professional governance practices fit the culture and needs of my firm?",
         items: [
-          "Governance structures that preserve agility",
-          "Accountability without bureaucracy",
-          "Family values embedded in business systems",
-          "Recruiting and retaining non-family professionals",
+          "How can I professionalize the firm without losing our family values and entrepreneurial spirit?",
+          "How can I make my board genuinely effective, performance-focused, and aligned with relevant global best practices?",
         ],
       },
       {
-        heading: "Board Effectiveness",
-        question:
-          "How can we make the board genuinely effective, performance-focused, and aligned with global best practices?",
+        heading: "",
+        question: "How can we recruit and retain best non-family professionals?",
         items: [
-          "Board structure and composition",
-          "Board independence",
-          "Board agendas and committees",
-          "Board performance evaluation",
-          "Accountability and decision-making",
-        ],
-      },
-      {
-        heading: "Family, Shareholders & Board",
-        question:
+          "How can I establish an effective and fair performance evaluation system for the Board performance?",
           "How should the family council, shareholders, and board of directors work and communicate together?",
-        items: [
-          "Family council / shareholder / board relationships",
-          "Clear mandates and communication protocols",
-          "Governance alignment at each level",
-          "Managing differences of view constructively",
         ],
+      },
+      {
+        heading: "",
+        question: "Which family-business board model best fits our stage of development, and how should its structure, agenda, independence, and committees work?",
+        items: [],
       },
     ],
     model: {
@@ -283,74 +252,61 @@ export const en: Translations = {
 
   // ── TESTIMONIAL / WHY ME ────────────────────────────────────────────
   testimonial: {
-    eyebrow: "Why Work With Me",
-    heading: "Experience matters, but no two family businesses are alike.",
-    p1: "Lasting governance begins with understanding each family's culture, relationships, ownership structure, and business dynamics.",
-    p2: "That is where an advisor with many years of hands-on experience helping families like yours can make a real difference. My work is always grounded in your specific situation — not in standard templates.",
-    cta: "Request a Confidential Discussion",
-    items: [
-      {
-        label: "Cross-Cultural Experience",
-        text: "Advising family businesses across five continents with a deep understanding of diverse ownership cultures and governance contexts.",
-      },
-      {
-        label: "Academic Rigour",
-        text: "PhD in Family Business Governance; Harvard Business School MBA with Honors. Theory grounded in practice.",
-      },
-      {
-        label: "Senior Executive Background",
-        text: "10+ years in international executive roles at P&G and Philip Morris. Former Managing Partner, Egon Zehnder International.",
-      },
-      {
-        label: "Institution Builder",
-        text: "Founding Chairman of Turkey's Corporate Governance Association (COGAT) and the Board Directors Association (BDA).",
-      },
-    ],
+    eyebrow: "",
+    heading: "You do not have to resolve these challenges alone",
+    p1: "These challenges are difficult, but your family business is not alone in facing them.",
+    p2: "Experience matters, but no two-family businesses are alike. Lasting governance begins with understanding each family’s culture, relationships, ownership structure, and business dynamics. That is where an advisor with many years of hands-on experience in helping families like yours may make a real difference",
+    cta: "Do not hesitate to call for a confidential preliminary discussion concerning your family's and company's priorities.",
+    items: [],
   },
 
   // ── ABOUT DR. HALUK ─────────────────────────────────────────────────
   about: {
     eyebrow: "About",
-    heading: "Dr. Haluk Alacaklıoğlu, PhD",
-    title: "Family Business Governance Advisor",
-    p1: "Dr. Haluk Alacaklıoğlu is a pioneer in cross-cultural family business governance. Since 2000, he has advised hundreds of family businesses across five continents on family governance, succession, ownership, and board effectiveness.",
-    p2: "He brings a rare combination of senior international executive experience, rigorous academic grounding, and more than two decades of dedicated advisory work with business-owning families worldwide.",
-    cta: "Discuss Your Family Business Priorities",
+    heading: "Haluk ALACAKLIOGLU",
+    title: "Trusted adviser to business families navigating succession, governance and board effectiveness.",
+    paragraphs: [
+      "Haluk ALACAKLIOGLU is the founder of the Family Business Governance, LLP, a UK registered international advisory firm helping leading families in business achieve their goals.",
+      "He has an undergraduate degree from Bosphorus University, Istanbul, and an MBA from Harvard Business School, Boston with Honors. He completed his Ph.D. at AUL, London, thesis and book published on Family Enterprises & Corporate Governance.",
+      "Haluk began his career as an Executive in international corporations, including Procter & Gamble and Philip Morris, working across Europe, the United States and the Middle East.",
+      "He later became Managing Partner at Egon Zehnder International, a leading global firm, where he advised senior leaders and boards on executive assessment and search, board evaluation and corporate governance, establishing two new offices.",
+      "In 2000 he established his own practice in Europe, focusing on family businesses and board governance.",
+      "Haluk has delivered numerous seminars for forums organized by the World Bank, CIPE, EBRD and Euromoney and private institutions. He has also spoken at conferences organized by the Family Firm Institute and the Family Business Network. Since 1989 he has helped hundreds of business families in five continents.",
+    ],
+    cta: "Do not hesitate to call for a confidential preliminary discussion concerning your family's and company's priorities.",
     quote:
-      "A successful transition is not simply about transferring ownership. It is about preparing people, clarifying responsibilities, and creating the governance structures that allow the enterprise to thrive.",
+      "Trusted adviser to business families navigating succession, governance and board effectiveness.",
     imgAlt: "Dr. Haluk Alacaklıoğlu — Family Business Governance Advisor",
     timeline: [
-      { period: "1979", role: "BA — Boğaziçi University", org: "Education", type: "edu" },
-      { period: "1983", role: "MBA with Honors — Harvard Business School", org: "Education", type: "edu" },
+      { period: "1979", role: "Bosphorus University- BA", org: "", type: "edu" },
+      { period: "1983", role: "Harvard Business School, MBA (Honors)", org: "", type: "edu" },
       {
-        period: "1980s",
-        role: "International Executive",
-        org: "Procter & Gamble · Philip Morris International",
-        detail: "Management roles across the USA, Europe, and the Middle East.",
+        period: "10 years",
+        role: "International Executive: Proctor & Gamble; Philip Morris International",
+        org: "USA, Europe, Middle East",
         type: "career",
       },
       {
         period: "1989–2000",
         role: "Managing Partner",
         org: "Egon Zehnder International",
-        detail: "Opened offices in Eastern Europe and the Middle East. Advised hundreds of companies on senior leadership assessment.",
         type: "career",
       },
       {
-        period: "2000–Present",
-        role: "Founder",
-        org: "FGB — Family Business Governance, LLP · Surrey, UK",
-        detail: "Advisory practice specialising in family governance, succession, ownership, and board effectiveness.",
+        period: "2000-…",
+        role: "Founder: FGB, Family Business Governance, LLP",
+        org: "Surrey, UK",
         type: "career",
       },
-      { period: "2003", role: "Founding Chairman", org: "Corporate Governance Association (COGAT)", type: "career" },
+      { period: "", role: "Founder: Board Governance, LLP", org: "", type: "career" },
+      { period: "2003", role: "Founding Chairman: Corporate Governance Association (COGAT)", org: "", type: "career" },
       {
         period: "2007",
-        role: "PhD — American University of London",
-        org: 'Dissertation: "Governance of Family Enterprises"',
+        role: "American University of London PhD",
+        org: "Dissertation: Governance of Family Enterprises",
         type: "edu",
       },
-      { period: "2017", role: "Founding Chairman", org: "Board Directors Association (BDA)", type: "career" },
+      { period: "2017", role: "Founding Chairman: Board Directors Association (BDA)", org: "", type: "career" },
     ],
   },
 
@@ -392,29 +348,16 @@ export const en: Translations = {
   // ── CONTACT FORM ─────────────────────────────────────────────────────
   contact: {
     eyebrow: "Contact",
-    heading: "Request a Confidential Preliminary Discussion",
-    p1: "Many families contact me when they need clarity around family and shareholder governance, succession and next-generation development, or business and board governance.",
-    p2: "A confidential first conversation can help clarify your priorities, identify where governance may be creating risk or delay, and determine whether my advisory support could be useful.",
+    heading: "Let us discuss your family business priorities.",
+    p1: "A confidential first conversation can clarify your priorities, identify where governance is creating risk or delay, and determine whether I can help.",
+    p2: "Do not hesitate to call for a confidential preliminary discussion concerning your family's and company's priorities.",
     whatsapp: "Contact via WhatsApp",
     confidentiality: "Your information will be treated confidentially.",
     submitBtn: "Request a Confidential Preliminary Discussion",
     successTitle: "Thank You",
     successMsg: "Your message has been received. I will be in touch shortly.",
     sendAnother: "Send Another Message",
-    areas: [
-      {
-        label: "Family & Shareholder Governance",
-        text: "Family constitutions, ownership structure, shareholder agreements, employment policies.",
-      },
-      {
-        label: "Succession & Next-Generation",
-        text: "Leadership succession, ownership transition, next-generation development and preparation.",
-      },
-      {
-        label: "Business & Board Governance",
-        text: "Board effectiveness, board structure, professionalisation, non-family executives.",
-      },
-    ],
+    areas: [],
     fields: {
       name: "Name",
       namePlaceholder: "Your full name",
@@ -459,7 +402,6 @@ export const en: Translations = {
       { label: "About", anchor: "about" },
       { label: "How I Help", anchor: "services" },
       { label: "Family & Shareholder Governance", anchor: "governance" },
-      { label: "Succession & Next Generation", anchor: "succession" },
       { label: "Business & Board Governance", anchor: "board" },
       { label: "Contact", anchor: "contact" },
     ],
