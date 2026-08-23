@@ -55,7 +55,7 @@ export function Footer() {
             </p>
             <button
               onClick={() => scrollTo("contact")}
-              className="mb-4 w-full py-3 bg-[hsl(0,20%,40%)] text-white font-serif text-xs tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors text-center"
+              className="mb-4 w-full py-3 bg-primary text-primary-foreground font-serif text-xs tracking-widest uppercase hover:bg-primary/90 transition-colors text-center"
             >
               {t.footer.ctaBtn}
             </button>

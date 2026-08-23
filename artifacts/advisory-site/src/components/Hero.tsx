@@ -53,9 +53,9 @@ export function Hero() {
           </h1>
           <button
             onClick={() => scrollTo("contact")}
-            className="w-full py-3.5 bg-[hsl(0,20%,40%)] text-white font-serif text-xs tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
+            className="w-full py-3.5 bg-primary text-primary-foreground font-serif text-xs tracking-widest uppercase hover:bg-primary/90 transition-colors"
           >
-            {t.hero.ctaPrimary}
+            <span dangerouslySetInnerHTML={{ __html: t.hero.ctaPrimary }} />
           </button>
         </motion.div>
       </div>
@@ -74,21 +74,16 @@ export function Hero() {
           <h1 className={`font-serif leading-[1.12] font-semibold text-white mb-6 ${lang === "tr" ? "text-4xl lg:text-[2.75rem]" : "text-4xl lg:text-[3.2rem]"}`}>
             {t.hero.headline}
           </h1>
-          <p className="font-sans text-base md:text-lg text-white/75 leading-relaxed mb-10">
-            {t.hero.subheadline}
-          </p>
+          <div
+            className="font-sans text-base md:text-lg text-white/75 leading-relaxed mb-10 space-y-3"
+            dangerouslySetInnerHTML={{ __html: t.hero.subheadline }}
+          />
           <div className="flex flex-row gap-4">
             <button
               onClick={() => scrollTo("contact")}
-              className="px-8 py-4 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
+              className="px-8 py-4 bg-primary text-primary-foreground text-left font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
             >
-              {t.hero.ctaPrimary}
-            </button>
-            <button
-              onClick={() => scrollTo("services")}
-              className="px-8 py-4 border border-white/50 text-white font-serif text-sm tracking-widest uppercase hover:bg-white/10 transition-colors backdrop-blur-sm"
-            >
-              {t.hero.ctaSecondary}
+              <span dangerouslySetInnerHTML={{ __html: t.hero.ctaPrimary }} />
             </button>
           </div>
         </motion.div>

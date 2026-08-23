@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
+import servicePortrait from "@images/planinng.jpg";
 
 export function AdvisoryServices() {
   const { t } = useLanguage();
@@ -36,15 +37,24 @@ export function AdvisoryServices() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="sticky top-32"
             >
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light mb-10">
-                {t.services.intro}
-              </p>
+              <div
+                className="service-intro text-lg md:text-xl text-muted-foreground leading-relaxed font-light mb-10"
+                dangerouslySetInnerHTML={{ __html: t.services.intro }}
+              />
               <button
                 onClick={() => scrollTo("contact")}
-                className="px-8 py-4 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
+                className="px-8 py-4 bg-primary text-primary-foreground font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
               >
                 {t.services.cta}
               </button>
+
+              <div className="mt-10 overflow-hidden rounded-none border border-border bg-card shadow-[8px_8px_0_rgba(20,88,85,0.08)]">
+                <img
+                  src={servicePortrait}
+                  alt="Dr. Haluk Alacaklıoğlu"
+                  className="block w-full h-[420px] md:h-[500px] object-cover object-center"
+                />
+              </div>
             </motion.div>
           </div>
 

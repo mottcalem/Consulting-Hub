@@ -11,7 +11,7 @@ export function AboutDrHaluk() {
   };
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-[hsl(33,31%,93%)]">
+    <section id="about" className="py-24 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
 
@@ -47,41 +47,11 @@ export function AboutDrHaluk() {
               ))}
             </div>
 
-            {/* Timeline */}
-            <div className="relative border-l border-primary/30 pl-8 flex flex-col gap-8">
-              {t.about.timeline.map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.07 * idx }}
-                  className="relative"
-                >
-                  {/* Dot */}
-                  <span
-                    className={`absolute -left-[37px] top-1 w-3 h-3 rounded-full border-2 ${
-                      item.type === "edu"
-                        ? "bg-background border-primary/50"
-                        : "bg-primary border-primary"
-                    }`}
-                  />
-                  <span className="text-xs font-medium text-primary/70 tracking-widest uppercase block mb-1">
-                    {item.period}
-                  </span>
-                  <h4 className="font-serif text-base font-semibold text-foreground">{item.role}</h4>
-                  <p className="text-sm text-muted-foreground font-medium">{item.org}</p>
-                  {"detail" in item && item.detail && (
-                    <p className="text-sm text-muted-foreground font-light mt-1 leading-relaxed">{item.detail}</p>
-                  )}
-                </motion.div>
-              ))}
-            </div>
 
             <div className="mt-12">
               <button
                 onClick={() => scrollTo("contact")}
-                className="px-8 py-4 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
+                className="px-8 py-4 bg-primary text-primary-foreground font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
               >
                 {t.about.cta}
               </button>
@@ -105,6 +75,9 @@ export function AboutDrHaluk() {
               />
               {/* Quote badge */}
               <div className="mt-8 p-6 bg-card border border-border">
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary mb-3">
+                  Benim misyonum
+                </p>
                 <p className="font-serif italic text-base text-foreground/80 leading-relaxed">
                   "{t.about.quote}"
                 </p>
