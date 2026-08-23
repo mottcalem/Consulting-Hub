@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { SiWhatsapp } from "react-icons/si";
+import draftingIllustration from "@images/drafting.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -34,7 +35,11 @@ export function ContactForm() {
     email: z.string().email(f.errors.emailInvalid),
     company: z.string().optional(),
     position: z.string().optional(),
-    country: z.string().optional(),
+    phone: z.string().optional(),
+    familyMember: z.string().optional(),
+    companyName: z.string().optional(),
+    shareholder: z.string().optional(),
+    generation: z.string().optional(),
     areaOfInterest: z.string().optional(),
     message: z.string().optional(),
   });
@@ -49,7 +54,11 @@ export function ContactForm() {
       email: "",
       company: "",
       position: "",
-      country: "",
+      phone: "",
+      familyMember: "",
+      companyName: "",
+      shareholder: "",
+      generation: "",
       areaOfInterest: "",
       message: "",
     },
@@ -69,7 +78,7 @@ export function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-[hsl(33,31%,93%)]">
+    <section id="contact" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
@@ -114,6 +123,14 @@ export function ContactForm() {
               <SiWhatsapp size={20} />
               {t.contact.whatsapp}
             </a>
+
+            <div className="mt-8 overflow-hidden border border-border bg-card">
+              <img
+                src={draftingIllustration}
+                alt="Drafting illustration"
+                className="block w-full h-[220px] sm:h-[260px] object-cover object-center"
+              />
+            </div>
           </motion.div>
 
           {/* Right: form */}
@@ -122,30 +139,31 @@ export function ContactForm() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="bg-card p-10 md:p-12 border border-border"
+            className="flex flex-col gap-6"
           >
-            {isSuccess ? (
-              <div className="h-full flex flex-col items-center justify-center text-center py-20">
-                <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-6">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+            <div className="bg-card p-10 md:p-12 border border-border">
+              {isSuccess ? (
+                <div className="h-full flex flex-col items-center justify-center text-center py-20">
+                  <div className="w-16 h-16 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-6">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-serif mb-4">{t.contact.successTitle}</h3>
+                  <p className="text-muted-foreground font-light">
+                    {t.contact.successMsg}
+                  </p>
+                  <Button
+                    variant="outline"
+                    className="mt-8 rounded-none border-primary text-primary"
+                    onClick={() => setIsSuccess(false)}
+                  >
+                    {t.contact.sendAnother}
+                  </Button>
                 </div>
-                <h3 className="text-2xl font-serif mb-4">{t.contact.successTitle}</h3>
-                <p className="text-muted-foreground font-light">
-                  {t.contact.successMsg}
-                </p>
-                <Button
-                  variant="outline"
-                  className="mt-8 rounded-none border-primary text-primary"
-                  onClick={() => setIsSuccess(false)}
-                >
-                  {t.contact.sendAnother}
-                </Button>
-              </div>
-            ) : (
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+              ) : (
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                       control={form.control}
@@ -207,12 +225,86 @@ export function ContactForm() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                       control={form.control}
-                      name="country"
+                      name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.country}</FormLabel>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.phone}</FormLabel>
                           <FormControl>
-                            <Input placeholder={f.countryPlaceholder} className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                            <Input placeholder={f.phonePlaceholder} type="tel" className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="familyMember"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.familyMember}</FormLabel>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="rounded-none bg-background border-border focus:ring-primary">
+                                <SelectValue placeholder={f.familyMemberPlaceholder} />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="rounded-none">
+                              <SelectItem value="yes">Evet</SelectItem>
+                              <SelectItem value="no">Hayır</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <FormField
+                      control={form.control}
+                      name="companyName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.companyName}</FormLabel>
+                          <FormControl>
+                            <Input placeholder={f.companyNamePlaceholder} className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="shareholder"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.shareholder}</FormLabel>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="rounded-none bg-background border-border focus:ring-primary">
+                                <SelectValue placeholder={f.shareholderPlaceholder} />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="rounded-none">
+                              <SelectItem value="yes">Evet</SelectItem>
+                              <SelectItem value="no">Hayır</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <FormField
+                      control={form.control}
+                      name="generation"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.generation}</FormLabel>
+                          <FormControl>
+                            <Input placeholder={f.generationPlaceholder} className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -264,20 +356,22 @@ export function ContactForm() {
                     {t.contact.confidentiality}
                   </p>
 
-                  <Button
-                    type="submit"
-                    className="w-full rounded-none h-13 font-serif tracking-wide bg-primary text-primary-foreground hover:bg-primary/90"
-                    disabled={isLoading}
-                  >
-                    {isLoading ? (
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                    ) : (
-                      t.contact.submitBtn
-                    )}
-                  </Button>
-                </form>
-              </Form>
-            )}
+                    <Button
+                      type="submit"
+                      className="w-full rounded-none h-13 font-serif tracking-wide bg-primary text-primary-foreground hover:bg-primary/90"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? (
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      ) : (
+                        t.contact.submitBtn
+                      )}
+                    </Button>
+                  </form>
+                </Form>
+              )}
+            </div>
+
           </motion.div>
         </div>
       </div>

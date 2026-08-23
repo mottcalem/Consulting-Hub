@@ -17,10 +17,10 @@ export const tr: Translations = {
   hero: {
     eyebrow: "Aile Şirketlerinin çözüm ortağı",
     headline:
-      "Ailenizin birliğini koruyan, nesiller arası geçişi güvenle yöneten ve sürdürülebilir biçimde büyüyen bir aile şirketi inşa edin.",
+      "Kurumsallaşırken",
     subheadline:
-      "Dr. Haluk Alacaklıoğlu (PhD), aile şirketlerinin kurumsallaşması, nesiller arası geçiş ve yönetim kurullarının etkinliği alanlarında çalışan uluslararası bir danışmandır. 1989’dan bu yana beş kıtada yüzlerce aile şirketine; aile ve şirket kurumsal yönetimi, nesiller arası geçiş ve etkin yönetim kurulları alanlarında danışmanlık yapmaktadır.",
-    ctaPrimary: "Ailenizin ve şirketinizin önceliklerini birlikte değerlendirmek için gizlilik esaslı bir ön görüşme için arayın",
+      "<p>Aile birliğinizi koruyun.</p><p>Gelecek nesile geçişi doğru planlayın, sürdürülebilir karlı büyümenin temelini atın.</p><p>Siz de yüzlerce aile şirketi gibi bunları başarmak istiyorsanız...</p>",
+    ctaPrimary: "Size nasıl yardımcı olabilirim?<br />Gizlilik esaslı bir ön görüşme için arayın",
     ctaSecondary: "Nasıl Yardımcı Olabilirim",
     stats: [
       { value: "2000'den beri", label: "Danışmanlık Pratiği" },
@@ -32,9 +32,9 @@ export const tr: Translations = {
   // ── ADVISORY SERVICES ───────────────────────────────────────────────
   services: {
     eyebrow: "Nasıl Yardımcı Oluyorum",
-    heading: "AİLE ŞİRKETİNİZİN KARLI BÜYÜMESİNİ VE NESİLLER ARASI DEVAMLILIĞINI NASIL GERÇEKLEŞTİRİYORUZ?",
+    heading: "ŞİRKETİNİZ KURUMSALLAŞARAK BÜYÜRKEN NESİLLER ARASI DEVAMLILIĞI NASIL GERÇEKLEŞTİRİYORUZ?",
     intro:
-      "Aileler çoğunlukla üç kritik konuda netlik aradıklarında benimle iletişime geçiyor: aile ve hissedar arası dinamikler, nesiller arası geçiş ve gelecek neslin gelişimi, şirket ve yönetim kurulu kurumsal yönetimi.",
+      "<p>Şu ve benzeri konularda aileler yardımıma başvurmaktadır:</p><ul><li>Aile arası dinamikleri kurumsallaştırma: aile anayasası ve protokoller, hissedarlar arası anlaşma.</li><li>Gelecek kuşakları hazırlama ve devir planı</li><li>Şirketin kurumsallaşması - özellikle yönetim sistemi</li></ul>",
     cta: "Ailenizin ve şirketinizin önceliklerini birlikte değerlendirmek için gizlilik esaslı bir ön görüşme için arayın",
     items: [
       {
@@ -50,7 +50,7 @@ export const tr: Translations = {
       {
         number: "03",
         title: "",
-        desc: "Gelecek nesil aile üyelerini bilinçli, katılımcı ve sorumlu hissedarlar olarak hazırlıyor; eğitim ve mentorlukla gelişimlerini destekliyoruz.",
+        desc: "Gelecek nesil aile üyelerini bilinçli ve sorumlu hissedarlar olarak hazırlıyor; eğitim ve mentorlukla gelişimlerini destekliyoruz.",
       },
       {
         number: "04",
@@ -144,24 +144,26 @@ export const tr: Translations = {
   // ── BOARD EXPERIENCE (Aile ve Hissedar Yönetimi) ────────────────────
   boardExperience: {
     eyebrow: "Aile ve Hissedar Yönetimi",
-    heading: "Aşağıdaki problemlerden hangileri ailenizin ve şirketinizin geleceğini bugün en fazla etkiliyor?",
+    heading: "Sizi hangi konular en fazla düşündürüyor?",
     intro:
       "Aileler çoğunlukla üç kritik konuda netlik aradıklarında benimle iletişime geçiyor: aile ve hissedar arası dinamikler, nesiller arası geçiş ve gelecek neslin gelişimi, şirket ve yönetim kurulu kurumsal yönetimi.",
     cta: "Aile Şirketinizin Önceliklerini Görüşelim",
     topics: [
       {
-        heading: "AİLE ÜYELERİ ve HİSSEDARLAR",
+        heading: "AİLE ÜYELERİ ve HİSSEDARLARLA İLGİLİ",
         items: [
           "Aile üyelerimin gerçek beklentilerini, umutlarını, hedef ve endişelerini nasıl netleştirebilirim?",
           "Aile anayasasına ihtiyacımız var mı? Varsa hangi model ailemize uygundur, hangi ilkeleri içermeli ve uygulamada nasıl işler hale gelmelidir?",
-          "Gelecek nesle geçişi nasıl planlamalıyım, onları sahipler olarak nasıl hazırlayabilirim? Aralarından layık olan iş liderlerini olarak nasıl seçerim?",
+          "Gelecek nesle geçişi nasıl planlamalıyım, onları sorumlu sahipler olarak nasıl hazırlayabilirim? Gelecek neslin liderlerini nasıl seçip hazırlarım?",
           "Aile büyüdükçe aile üyelerimizin istihdam, çelişkileri önleme, ödüllendirme ve paylaşım gibi kritik politikalar nasıl olmalı?",
           "Aile ve işin karar alma organlarında kimler ve hangi kriterlere göre yer almalıdır?",
           "“Hissedarlar Sözleşmemiz” hangi politikaları ve ilkeleri içermelidir?",
           "İşletmemiz ve ailemiz için “evlilikle aileye katılanlara” nasıl bir yaklaşım sergilemeliyiz?",
           "Ailemiz içinde ve şirketimizle olan iletişimi ve güveni nasıl güçlendiririz?",
           "Ayrılmak isteyen hissedarlara adil çözümler nasıl sunabiliriz?",
-          "…ve ilgili konular…",
+          "Kurumsal yapımızda 'evlilikle aileye katılanlar'ile ilgili ilke ve kurallar neler olmalı?",
+          "Aile bireyleri arasında ve işte çalışanlar ile iletişimi ve güveni nasıl güçlendiririz?",
+          "Ayrılmak isteyen hissedarlara ve işimiz için adil çözümler nasıl oluşturabiliriz?"
         ],
       },
     ],
@@ -201,11 +203,11 @@ export const tr: Translations = {
 
   // ── BOARD GOVERNANCE SECTION ────────────────────────────────────────
   boardGovernance: {
-    eyebrow: "Şirket ve Yönetim Kurulu Yönetimi",
-    heading: "ŞİRKET VE YÖNETİM KURULU",
+    eyebrow: "",
+    heading: "ŞİRKETİN KURUMSAL YÖNETİM SİSTEMİ",
     intro:
-      "Aşağıdaki problemlerden hangileri ailenizin ve şirketinizin geleceğini bugün en fazla etkiliyor?",
-    cta: "Yönetim Kurulu Önceliklerinizi Görüşelim",
+      "Aşağıdaki gruplardaki sorularla sürekli karşılaşıyor ve çözümler getiriyoruz. Sizi bugün hangileri düşündürüyor?",
+    cta: "Kurumsal Yönetim Kurulu Önceliklerinizi Görüşelim",
     topics: [
       {
         heading: "",
@@ -218,17 +220,17 @@ export const tr: Translations = {
       {
         heading: "",
         question:
-          "Gelişim ve olgunluk seviyemize en uygun Yönetim Kurulu modeli hangisidir? Yapısı, çalışma prensipleri, gündemler, vb… nasıl olmalıdır?",
+          "Aile şirketimize en uygun Yönetim Kurulu modeli hangisidir? Yapısı, çalışma prensipleri, gündemler, v.b... nasıl olmalıdır?",
         items: [
-          "Geçerli en iyi uygulamaları kullanarak Yönetim Kurulumun gerçekten etkili ve performans odaklı olmasını nasıl sağlayabilirim?",
+          "Yönetim Kurulumun performans odaklı olmasını nasıl sağlayabilirim?",
         ],
       },
       {
         heading: "",
         question:
-          "Aile dışı yetkin profesyonelleri nasıl kazanabilir ve elde tutabiliriz?",
+          "Aile dışı yetkin profesyonelleri nasıl kazanabilir ve motive edebiliriz?",
         items: [
-          "Aile Konseyi – Hissedarlar – Yönetim Kurulu arasındaki en uygun ilişki ve iletişim nedir? Bunu nasıl başarabiliriz?",
+          "Yüz yıllık ya da 4 kuşaklık şirket olabilme şansımızı nasıl artırıbiliriz?",
         ],
       },
     ],
@@ -251,9 +253,9 @@ export const tr: Translations = {
   // ── TESTIMONIAL / WHY ME ────────────────────────────────────────────
   testimonial: {
     eyebrow: "",
-    heading: "Bu zorlukları tek başınıza çözmek zorunda değilsiniz.",
-    p1: "Bunlar gerçekten çok zorlayıcı konulardır ancak aile şirketiniz bunlarla karşı karşıya kalan tek şirket değil.",
-    p2: "Deneyim önemlidir, ancak hiçbir aile şirketi tıpatıp birbirine benzemez. Kalıcı yönetim, her ailenin kültürünü, ilişkilerini, sahiplik yapısını ve iş dinamiklerini anlamakla başlar. İşte burada, sizin gibi ailelere yardımcı olma konusunda uzun yıllara dayanan uygulamalı deneyime sahip bir danışman gerçek bir fark yaratabilir.",
+    heading: "YALNIZ DEĞİLSİNİZ",
+    p1: "Bunlar gerçekten çok zorlayıcı konulardır ancak aile şirketiniz bunlarla karşı karşıya kalan tek şirket değil. Bu zorlukları tek başınıza çözmek zorunda değilsiniz.",
+    p2: "Deneyim önemlidir, hiçbir aile şirkleti tıpatıp birbirine benzemez. Kurumsallaşmada başarı için şirket sahibi ailenin kültürünü, ilişkilerini, dinamiklerini TARAFSIZCA tespit etmek şarttır. Bu konuda size yüzlerce uygulamalı deneyime sahip bir kılavuz başarı için fark yaratabilir.",
     cta: "Ailenizin ve şirketinizin önceliklerini birlikte değerlendirmek için gizlilik esaslı bir ön görüşme için arayın",
     items: [],
   },
@@ -264,16 +266,17 @@ export const tr: Translations = {
     heading: "Dr. Haluk Alacaklıoğlu, PhD",
     title: "Aile Şirketlerinin çözüm ortağı",
     paragraphs: [
-      "Aile şirketlerine kurumsallaşma, yönetim kurulu etkinliği ve sürdürülebilir yönetişim alanlarında uluslararası deneyime dayalı danışmanlık sunmaktadır.",
+      "Aile şirketlerine kurumsallaşma, yönetim kurulu etkinliği ve sürdürülebilir yönetim alanlarında uluslararası deneyime dayalı danışmanlık sunmaktadır.",
       "Dr. Haluk Alacaklıoğlu, PhD; önder aile şirket sahiplerinin vizyon ve hedeflerine ulaşmalarına yardımcı olan, uluslararası danışmanlık firması Family Business Governance, LLP (UK) nin kurucusudur.",
-      "Boğaziçi Üniversitesi'nden lisans, Boston Harvard İşletme Okulu'ndan ise onur derecesiyle MBA derecesine sahiptir. Londra AUL'de doktora eğitimini tamamlamış olup, tezi ve kitabı Aile İşletmeleri ve Kurumsal Yönetim üzerine yayınlanmıştır.",
-      "Haluk, kariyerine Procter & Gamble ve Philip Morris gibi uluslararası şirketlerde Avrupa, Amerika Birleşik Devletleri ve Orta Doğu'da yöneticilik yaparak başlamıştır. Ardından, önde gelen küresel firmalardan Egon Zehnder International'da Yönetici Ortak olmuş; üst düzey yönetici ve yönetim kurullarına yönetici değerlendirme ve seçme, yönetim kurulu değerlendirmesi ve kurumsal yönetim konularında danışmanlık vermiştir. Bu dönemde iki yeni ofis kurmuştur.",
+      "Boğaziçi Üniversitesi'nden lisans, Harvard Business School'dan ise onur derecesiyle MBA derecesine sahiptir. Londra AUL'de doktora eğitimini tamamlamış olup, tezi ve kitabı Aile İşletmeleri ve Kurumsal Yönetim üzerine yayınlanmıştır.",
+      "Haluk, kariyerine Procter & Gamble ve Philip Morris International'da Avrupa, ABD ve Orta Doğu'da uluslararası yönetici olarak çalışmış; ardından dünyanın alanında lider küresel danışmanlık firması Egon Zehnder International'da Yönetici Ortak olmuş; üst düzey yönetici ve yönetim kurullarına yönetici değerlendirme ve seçme, yönetim kurulu değerlendirmesi ve kurumsal yönetim konularında danışmanlık vermiştir. Bu dönemde iki yeni ofis kurmuştur.",
       "2000 yılında Avrupa'da kendi danışmanlık firmasını kurarak aile işletmelerinin kurumsallaşmalarına ve etkin yönetim kurulu oluşturma çalışmalarına odaklanmıştır. Türkiye’de kurumsal yönetimde lider iki derneğin kurucu başkanıdır: Türkiye Kurumsal Yönetim Derneği (TKYD) 2004 ve Yönetim Kurulu Üyeleri Derneği (YÜD) 2017",
+      "Dünyanın en büyük bağımsız aile şirketleri ağı olan Family Business Network'ün küresel danışmanı olarak Türkiye şubesinin (TAİDER) kurulmasında önderlik etmiştir.",
       "Haluk, Dünya Bankası, CIPE, EBRD ve Euromoney tarafından düzenlenen forumların yanı sıra özel kuruluşlar için de çok sayıda seminer vermiştir. Aile Şirketleri Enstitüsü (FFI) ve Aile İşletmeleri Ağı (FBN) konferanslarında konuşmacı olarak yer almıştır. 1989'dan bu yana beş kıtada yüzlerce iş ailesine danışmanlık vererek uluslararası deneyimini aile şirketlerinin kurumsallaşma ve nesiller arası geçiş ihtiyaçlarına aktarmıştır.",
     ],
     cta: "Ailenizin ve şirketinizin önceliklerini birlikte değerlendirmek için gizlilik esaslı bir ön görüşme için arayın",
     quote:
-      "Aile şirketlerine kurumsallaşma, yönetim kurulu etkinliği ve sürdürülebilir yönetişim alanlarında uluslararası deneyime dayalı danışmanlık sunmaktadır.",
+      "Aile şirketlerimiz ekonominin temeli ve lokomotifidir. Onları kurumsallaştırıp güçlendirdikçe ülkemizin refahı artacak, ekonomik gelişme, istihdam ve kişisel gelişme getirecektir. Ben misyon edindiğim bu yolda şirket sahibi ailelere destek olmaktan büyük haz duymaktayım.",
     imgAlt: "Dr. Haluk Alacaklıoğlu — Aile Şirketleri ve Kurumsal Yönetim Danışmanı",
     timeline: [
       { period: "1979", role: "Boğaziçi Üniversitesi - Lisans", org: "", type: "edu" },
@@ -365,8 +368,16 @@ export const tr: Translations = {
       companyPlaceholder: "Aile şirketi / kuruluş",
       position: "Göreviniz",
       positionPlaceholder: "Görev veya pozisyonunuz",
-      country: "Ülke",
-      countryPlaceholder: "Ülke",
+      phone: "Cep Tel",
+      phonePlaceholder: "+90 5xx xxx xx xx",
+      familyMember: "Şirket sahibi aile üyesi? / değil",
+      familyMemberPlaceholder: "Seçin",
+      companyName: "Şirket ismi",
+      companyNamePlaceholder: "Şirket adınız",
+      shareholder: "Hissedar / değil",
+      shareholderPlaceholder: "Seçin",
+      generation: "Kaçıncı kuşak?",
+      generationPlaceholder: "Örn. 2. kuşak",
       interest: "İlgi Alanınız",
       interestPlaceholder: "Alan seçin",
       message: "Mesajınız",

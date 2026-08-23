@@ -77,7 +77,7 @@ export function SuccessionSection() {
             <div className="mt-12">
               <button
                 onClick={() => scrollTo("contact")}
-                className="px-8 py-4 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
+                className="px-8 py-4 bg-primary text-primary-foreground font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
               >
                 {t.succession.cta}
               </button>

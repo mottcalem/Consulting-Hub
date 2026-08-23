@@ -180,8 +180,16 @@ export interface Translations {
       companyPlaceholder: string;
       position: string;
       positionPlaceholder: string;
-      country: string;
-      countryPlaceholder: string;
+      phone: string;
+      phonePlaceholder: string;
+      familyMember: string;
+      familyMemberPlaceholder: string;
+      companyName: string;
+      companyNamePlaceholder: string;
+      shareholder: string;
+      shareholderPlaceholder: string;
+      generation: string;
+      generationPlaceholder: string;
       interest: string;
       interestPlaceholder: string;
       message: string;

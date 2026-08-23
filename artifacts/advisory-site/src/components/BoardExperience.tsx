@@ -20,7 +20,7 @@ export function BoardExperience() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <span className="text-primary-foreground/50 font-bold tracking-widest uppercase text-sm mb-4 block">
+          <span className="text-primary-foreground/50 font-bold tracking-widest uppercase text-[32px] mb-4 block">
             {t.boardExperience.eyebrow}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif max-w-3xl leading-tight">

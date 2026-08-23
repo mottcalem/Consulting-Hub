@@ -36,21 +36,21 @@ export function Navbar() {
   return (
     <>
       {/* ── Top credential strip ── */}
-      <div className="bg-[hsl(0,20%,40%)] text-white text-xs tracking-widest uppercase text-center py-2 px-4 font-sans hidden md:block">
+      <div className="bg-primary text-primary-foreground text-xs tracking-widest uppercase text-center py-2 px-4 font-sans hidden md:block">
         {t.nav.strip}
       </div>
 
       {/* ── Main banner ── */}
       <header
-        className={`sticky top-0 z-50 bg-[hsl(33,31%,96%)] border-b transition-shadow duration-300 ${
-          scrolled ? "shadow-md border-[hsl(30,18%,80%)]" : "border-[hsl(30,18%,88%)]"
+        className={`sticky top-0 z-50 bg-background border-b transition-shadow duration-300 ${
+          scrolled ? "shadow-md border-border" : "border-border/80"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
           {/* Logo / Name */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-serif text-lg md:text-xl font-semibold text-[hsl(0,0%,17%)] tracking-tight whitespace-nowrap hover:text-[hsl(0,20%,40%)] transition-colors"
+            className="font-serif text-lg md:text-xl font-semibold text-foreground tracking-tight whitespace-nowrap hover:text-primary transition-colors"
             data-testid="navbar-logo"
           >
             Dr. Haluk Alacaklıoğlu
@@ -62,10 +62,10 @@ export function Navbar() {
               <button
                 key={link.label}
                 onClick={link.action}
-                className="relative group py-1 hover:text-[hsl(0,20%,40%)] transition-colors"
+                className="relative group py-1 hover:text-primary transition-colors"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[hsl(0,20%,47%)] group-hover:w-full transition-all duration-200" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-primary group-hover:w-full transition-all duration-200" />
               </button>
             ))}
 
@@ -82,8 +82,8 @@ export function Navbar() {
                   aria-pressed={lang === code}
                   className={`px-2.5 py-1 text-xs font-medium tracking-widest transition-colors ${
                     lang === code
-                      ? "bg-[hsl(0,20%,40%)] text-white"
-                      : "text-[hsl(0,0%,40%)] hover:bg-[hsl(33,31%,90%)]"
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground/70 hover:bg-accent"
                   }`}
                 >
                   {label}
@@ -93,7 +93,7 @@ export function Navbar() {
 
             <button
               onClick={() => scrollTo("contact")}
-              className="ml-2 px-5 py-2 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase hover:bg-[hsl(0,20%,33%)] transition-colors"
+              className="ml-2 px-5 py-2 bg-primary text-primary-foreground font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
               data-testid="nav-contact-cta"
             >
               {t.nav.cta}
@@ -115,8 +115,8 @@ export function Navbar() {
                   aria-pressed={lang === code}
                   className={`px-2 py-1 text-xs font-medium tracking-widest transition-colors ${
                     lang === code
-                      ? "bg-[hsl(0,20%,40%)] text-white"
-                      : "text-[hsl(0,0%,40%)]"
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground/70"
                   }`}
                 >
                   {label}
@@ -137,19 +137,19 @@ export function Navbar() {
 
         {/* Mobile drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[hsl(33,31%,96%)] border-t border-[hsl(30,18%,85%)] px-6 py-5 flex flex-col gap-1">
+          <div className="md:hidden bg-background border-t border-border px-6 py-5 flex flex-col gap-1">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={link.action}
-                className="text-left py-3 text-sm font-medium text-[hsl(0,0%,25%)] border-b border-[hsl(30,18%,90%)] last:border-0 hover:text-[hsl(0,20%,40%)] transition-colors"
+                className="text-left py-3 text-sm font-medium text-foreground/80 border-b border-border last:border-0 hover:text-primary transition-colors"
               >
                 {link.label}
               </button>
             ))}
             <button
               onClick={() => scrollTo("contact")}
-              className="mt-4 py-3 bg-[hsl(0,20%,40%)] text-white font-serif text-sm tracking-widest uppercase text-center hover:bg-[hsl(0,20%,33%)] transition-colors"
+              className="mt-4 py-3 bg-primary text-primary-foreground font-serif text-sm tracking-widest uppercase text-center hover:bg-primary/90 transition-colors"
             >
               {t.nav.cta}
             </button>
