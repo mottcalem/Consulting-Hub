@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { Language } from "@/i18n/LanguageContext";
+import familyAdvisorLogo from "@images/family-advisor-logo.png";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -46,14 +47,19 @@ export function Navbar() {
           scrolled ? "shadow-md border-border" : "border-border/80"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-24 md:h-28">
           {/* Logo / Name */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-serif text-lg md:text-xl font-semibold text-foreground tracking-tight whitespace-nowrap hover:text-primary transition-colors"
+            className="flex h-full items-center"
             data-testid="navbar-logo"
+            aria-label="Family Business Advisors — ana sayfa"
           >
-            Dr. Haluk Alacaklıoğlu
+            <img
+              src={familyAdvisorLogo}
+              alt="Family Business Advisors"
+              className="h-20 w-20 object-contain md:h-28 md:w-28"
+            />
           </button>
 
           {/* Desktop nav */}
@@ -93,7 +99,7 @@ export function Navbar() {
 
             <button
               onClick={() => scrollTo("contact")}
-              className="ml-2 px-5 py-2 bg-primary text-primary-foreground font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
+              className="ml-2 px-5 py-2 bg-primary text-primary-foreground font-sans text-sm font-semibold tracking-wide uppercase leading-snug hover:bg-primary/90 transition-colors"
               data-testid="nav-contact-cta"
             >
               {t.nav.cta}
@@ -149,7 +155,7 @@ export function Navbar() {
             ))}
             <button
               onClick={() => scrollTo("contact")}
-              className="mt-4 py-3 bg-primary text-primary-foreground font-serif text-sm tracking-widest uppercase text-center hover:bg-primary/90 transition-colors"
+              className="mt-4 py-3 bg-primary text-primary-foreground font-sans text-base font-semibold tracking-wide uppercase leading-snug text-center hover:bg-primary/90 transition-colors"
             >
               {t.nav.cta}
             </button>

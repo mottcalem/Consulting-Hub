@@ -26,15 +26,15 @@ export function Testimonial() {
             <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6 leading-tight">
               {t.testimonial.heading}
             </h2>
-            <p className="text-lg text-foreground/75 font-light leading-relaxed mb-6">
+            <p className="text-[20px] text-foreground/75 font-light leading-relaxed mb-6">
               {t.testimonial.p1}
             </p>
-            <p className="text-base text-foreground/65 font-light leading-relaxed mb-10">
+            <p className="text-[18px] text-foreground/65 font-light leading-relaxed mb-10">
               {t.testimonial.p2}
             </p>
             <button
               onClick={() => scrollTo("contact")}
-              className="px-8 py-4 bg-primary text-primary-foreground font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
+              className="px-8 py-4 bg-primary text-primary-foreground font-sans text-base font-semibold tracking-wide uppercase leading-snug hover:bg-primary/90 transition-colors"
             >
               {t.testimonial.cta}
             </button>
@@ -46,7 +46,7 @@ export function Testimonial() {
                 <div className="w-1 bg-primary flex-shrink-0 rounded-full" />
                 <div>
                   <h4 className="font-serif text-base font-medium text-foreground mb-1">{item.label}</h4>
-                  <p className="text-sm text-muted-foreground font-light leading-relaxed">{item.text}</p>
+                  <p className="text-base text-muted-foreground font-light leading-relaxed">{item.text}</p>
                 </div>
               </div>
             ))}

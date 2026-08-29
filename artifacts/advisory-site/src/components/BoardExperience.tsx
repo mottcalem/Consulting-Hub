@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
-import nextGenPhoto from "@/assets/next-gen-2.jpg";
+import nextGenPhoto from "@images/drafting.png";
 
 export function BoardExperience() {
   const { t } = useLanguage();
@@ -26,7 +26,7 @@ export function BoardExperience() {
           <h2 className="text-3xl md:text-5xl font-serif max-w-3xl leading-tight">
             {t.boardExperience.heading}
           </h2>
-          <p className="mt-6 text-lg text-primary-foreground/75 font-light leading-relaxed max-w-2xl">
+          <p className="mt-6 text-[20px] text-primary-foreground/75 font-light leading-relaxed max-w-2xl">
             {t.boardExperience.intro}
           </p>
         </motion.div>
@@ -78,7 +78,7 @@ export function BoardExperience() {
         >
           <button
             onClick={() => scrollTo("contact")}
-            className="px-10 py-4 bg-primary-foreground text-primary font-serif text-sm tracking-widest uppercase hover:bg-primary-foreground/90 transition-colors"
+            className="px-10 py-4 bg-primary-foreground text-primary font-sans text-base font-semibold tracking-wide uppercase leading-snug hover:bg-primary-foreground/90 transition-colors"
           >
             {t.boardExperience.cta}
           </button>

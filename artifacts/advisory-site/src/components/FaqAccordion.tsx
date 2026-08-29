@@ -35,12 +35,12 @@ export function FaqAccordion() {
             <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6 leading-tight">
               {t.faq.heading}
             </h2>
-            <p className="text-base text-foreground/70 font-light leading-relaxed mb-10">
+            <p className="text-[18px] text-foreground/70 font-light leading-relaxed mb-10">
               {t.faq.intro}
             </p>
             <Button
               size="lg"
-              className="rounded-none font-serif tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 px-8"
+              className="rounded-none font-sans text-base font-semibold tracking-wide bg-primary text-primary-foreground hover:bg-primary/90 px-8"
               onClick={() => scrollTo("contact")}
             >
               {t.faq.cta}

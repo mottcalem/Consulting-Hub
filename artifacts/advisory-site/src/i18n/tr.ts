@@ -143,7 +143,7 @@ export const tr: Translations = {
 
   // ── BOARD EXPERIENCE (Aile ve Hissedar Yönetimi) ────────────────────
   boardExperience: {
-    eyebrow: "Aile ve Hissedar Yönetimi",
+    eyebrow: "ŞİRKET SAHİBİ AİLENİN KURUMSALLAŞMASI",
     heading: "Sizi hangi konular en fazla düşündürüyor?",
     intro:
       "Aileler çoğunlukla üç kritik konuda netlik aradıklarında benimle iletişime geçiyor: aile ve hissedar arası dinamikler, nesiller arası geçiş ve gelecek neslin gelişimi, şirket ve yönetim kurulu kurumsal yönetimi.",
@@ -155,7 +155,7 @@ export const tr: Translations = {
           "Aile üyelerimin gerçek beklentilerini, umutlarını, hedef ve endişelerini nasıl netleştirebilirim?",
           "Aile anayasasına ihtiyacımız var mı? Varsa hangi model ailemize uygundur, hangi ilkeleri içermeli ve uygulamada nasıl işler hale gelmelidir?",
           "Gelecek nesle geçişi nasıl planlamalıyım, onları sorumlu sahipler olarak nasıl hazırlayabilirim? Gelecek neslin liderlerini nasıl seçip hazırlarım?",
-          "Aile büyüdükçe aile üyelerimizin istihdam, çelişkileri önleme, ödüllendirme ve paylaşım gibi kritik politikalar nasıl olmalı?",
+          "Aile büyüdükçe istihdam, çelişkileri önleme, ödüllendirme ve paylaşım gibi kritik politikalar nasıl olmalı?",
           "Aile ve işin karar alma organlarında kimler ve hangi kriterlere göre yer almalıdır?",
           "“Hissedarlar Sözleşmemiz” hangi politikaları ve ilkeleri içermelidir?",
           "İşletmemiz ve ailemiz için “evlilikle aileye katılanlara” nasıl bir yaklaşım sergilemeliyiz?",
@@ -163,7 +163,7 @@ export const tr: Translations = {
           "Ayrılmak isteyen hissedarlara adil çözümler nasıl sunabiliriz?",
           "Kurumsal yapımızda 'evlilikle aileye katılanlar'ile ilgili ilke ve kurallar neler olmalı?",
           "Aile bireyleri arasında ve işte çalışanlar ile iletişimi ve güveni nasıl güçlendiririz?",
-          "Ayrılmak isteyen hissedarlara ve işimiz için adil çözümler nasıl oluşturabiliriz?"
+          "Ayrılmak isteyen hissedarlar ve işimiz için adil çözümler nasıl oluşturabiliriz?"
         ],
       },
     ],
@@ -212,7 +212,7 @@ export const tr: Translations = {
       {
         heading: "",
         question:
-          "Bizim şirketin kültürüne en uygun hangi kurumsal “uygulamalar” neler?",
+          "Şirketimizin kültür ve seviyesine en uygun Kurumsal Yönetim sistemi nedir?",
         items: [
           "Şirketimi kurumsallaştırırken kişisel ve ailevi değerleri, girişimcilik ruhunu nasıl koruyabilirim?",
         ],
@@ -352,6 +352,13 @@ export const tr: Translations = {
     heading: "AİLE İŞLETME ÖNCELİKLERİNİZİ GÖRÜŞELİM.",
     p1: "Özel bir ilk görüşme, önceliklerinizi netleştirmenize, durumunuzun risk yarattığı alanları belirlemenize ve size yardımcı olabilir miyim tespit etmenizi sağlayabilir.",
     p2: "Ailenizin ve şirketinizin önceliklerini birlikte değerlendirmek için gizlilik esaslı bir ön görüşme için arayın",
+    addressLabel: "Şirket adresi",
+    addressLines: [
+      "FAMILY BUSINESS GOVERNANCE, LLP",
+      "167–169 London Road",
+      "Kingston upon Thames, Surrey KT2 6PT",
+      "Birleşik Krallık",
+    ],
     whatsapp: "WhatsApp ile İletişime Geçin",
     confidentiality: "Paylaştığınız bilgiler gizlilik esasına uygun olarak ele alınacaktır.",
     submitBtn: "Gizlilik Esaslı Ön Görüşme Talep Edin",

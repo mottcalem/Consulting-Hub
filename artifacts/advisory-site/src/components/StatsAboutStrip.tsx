@@ -24,16 +24,16 @@ export function StatsAboutStrip() {
             <span className="text-primary font-bold tracking-widest uppercase text-sm mb-6 block">
               {t.statsStrip.eyebrow}
             </span>
-            <p className="text-lg text-foreground/80 leading-relaxed font-light mb-8">
+            <p className="text-[20px] text-foreground/80 leading-relaxed font-light mb-8">
               {t.statsStrip.p1}
             </p>
-            <p className="text-base text-foreground/70 leading-relaxed font-light mb-10">
+            <p className="text-[18px] text-foreground/70 leading-relaxed font-light mb-10">
               {t.statsStrip.p2}
             </p>
 
             <button
               onClick={() => scrollTo("contact")}
-              className="px-8 py-4 bg-primary text-primary-foreground font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
+              className="px-8 py-4 bg-primary text-primary-foreground font-sans text-base font-semibold tracking-wide uppercase leading-snug hover:bg-primary/90 transition-colors"
             >
               {t.statsStrip.cta}
             </button>

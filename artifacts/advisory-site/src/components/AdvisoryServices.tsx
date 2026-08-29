@@ -43,7 +43,7 @@ export function AdvisoryServices() {
               />
               <button
                 onClick={() => scrollTo("contact")}
-                className="px-8 py-4 bg-primary text-primary-foreground font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
+                className="px-8 py-4 bg-primary text-primary-foreground font-sans text-base font-semibold tracking-wide uppercase leading-snug hover:bg-primary/90 transition-colors"
               >
                 {t.services.cta}
               </button>
@@ -52,7 +52,7 @@ export function AdvisoryServices() {
                 <img
                   src={servicePortrait}
                   alt="Dr. Haluk Alacaklıoğlu"
-                  className="block w-full h-[420px] md:h-[500px] object-cover object-center"
+                  className="block w-full h-[300px] md:h-[300px] object-cover object-center"
                 />
               </div>
             </motion.div>
@@ -79,7 +79,7 @@ export function AdvisoryServices() {
                           {service.title}
                         </h3>
                       )}
-                      <p className="text-muted-foreground leading-relaxed">{service.desc}</p>
+                      <p className="text-[18px] text-muted-foreground leading-relaxed">{service.desc}</p>
                     </div>
                   </div>
                 </motion.div>

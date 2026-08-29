@@ -164,6 +164,8 @@ export interface Translations {
     heading: string;
     p1: string;
     p2: string;
+    addressLabel: string;
+    addressLines: string[];
     whatsapp: string;
     confidentiality: string;
     submitBtn: string;

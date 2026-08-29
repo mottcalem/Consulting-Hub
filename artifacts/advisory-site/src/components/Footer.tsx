@@ -19,10 +19,10 @@ export function Footer() {
           {/* Brand */}
           <div>
             <h2 className="text-xl font-serif mb-3">Dr. Haluk Alacaklıoğlu</h2>
-            <p className="text-background/50 font-light text-sm leading-relaxed mb-2">
+            <p className="text-background/50 font-light text-base leading-relaxed mb-2">
               {t.footer.tagline}
             </p>
-            <p className="text-background/40 font-light text-sm leading-relaxed">
+            <p className="text-background/40 font-light text-base leading-relaxed">
               {t.footer.desc}
             </p>
           </div>
@@ -50,12 +50,12 @@ export function Footer() {
             <p className="text-background/40 text-xs font-medium tracking-widest uppercase mb-4">
               {t.footer.contactLabel}
             </p>
-            <p className="text-background/60 font-light text-sm leading-relaxed mb-6">
+            <p className="text-background/60 font-light text-base leading-relaxed mb-6">
               {t.footer.contactDesc}
             </p>
             <button
               onClick={() => scrollTo("contact")}
-              className="mb-4 w-full py-3 bg-primary text-primary-foreground font-serif text-xs tracking-widest uppercase hover:bg-primary/90 transition-colors text-center"
+              className="mb-4 w-full py-3 bg-primary text-primary-foreground font-sans text-sm font-semibold tracking-wide uppercase leading-snug hover:bg-primary/90 transition-colors text-center"
             >
               {t.footer.ctaBtn}
             </button>

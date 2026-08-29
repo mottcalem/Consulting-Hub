@@ -53,7 +53,7 @@ export function Hero() {
           </h1>
           <button
             onClick={() => scrollTo("contact")}
-            className="w-full py-3.5 bg-primary text-primary-foreground font-serif text-xs tracking-widest uppercase hover:bg-primary/90 transition-colors"
+            className="w-full py-3.5 bg-primary text-primary-foreground font-sans text-sm font-semibold tracking-wide uppercase leading-snug hover:bg-primary/90 transition-colors"
           >
             <span dangerouslySetInnerHTML={{ __html: t.hero.ctaPrimary }} />
           </button>
@@ -75,13 +75,13 @@ export function Hero() {
             {t.hero.headline}
           </h1>
           <div
-            className="font-sans text-base md:text-lg text-white/75 leading-relaxed mb-10 space-y-3"
+            className="font-sans text-[18px] md:text-[20px] text-white/75 leading-relaxed mb-10 space-y-3"
             dangerouslySetInnerHTML={{ __html: t.hero.subheadline }}
           />
           <div className="flex flex-row gap-4">
             <button
               onClick={() => scrollTo("contact")}
-              className="px-8 py-4 bg-primary text-primary-foreground text-left font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
+              className="px-8 py-4 bg-primary text-primary-foreground text-left font-sans text-base font-semibold tracking-wide uppercase leading-snug hover:bg-primary/90 transition-colors"
             >
               <span dangerouslySetInnerHTML={{ __html: t.hero.ctaPrimary }} />
             </button>

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { SiWhatsapp } from "react-icons/si";
-import draftingIllustration from "@images/drafting.png";
+import draftingIllustration from "@images/11.jpg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,7 +23,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Loader2 } from "lucide-react";
+import { Loader2, MapPin } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export function ContactForm() {
@@ -37,10 +37,8 @@ export function ContactForm() {
     position: z.string().optional(),
     phone: z.string().optional(),
     familyMember: z.string().optional(),
-    companyName: z.string().optional(),
     shareholder: z.string().optional(),
     generation: z.string().optional(),
-    areaOfInterest: z.string().optional(),
     message: z.string().optional(),
   });
 
@@ -56,10 +54,8 @@ export function ContactForm() {
       position: "",
       phone: "",
       familyMember: "",
-      companyName: "",
       shareholder: "",
       generation: "",
-      areaOfInterest: "",
       message: "",
     },
   });
@@ -95,12 +91,24 @@ export function ContactForm() {
             <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-6 leading-tight">
               {t.contact.heading}
             </h2>
-            <p className="text-base text-foreground/70 font-light leading-relaxed mb-4">
+            <p className="text-[18px] text-foreground/70 font-light leading-relaxed mb-4">
               {t.contact.p1}
             </p>
-            <p className="text-base text-foreground/70 font-light leading-relaxed mb-10">
+            <p className="text-[18px] text-foreground/70 font-light leading-relaxed mb-10">
               {t.contact.p2}
             </p>
+
+            <div className="flex gap-4 mb-10 text-foreground/70">
+              <MapPin className="mt-1 size-5 flex-shrink-0 text-primary" aria-hidden="true" />
+              <address className="not-italic text-base font-light leading-relaxed">
+                <span className="mb-1 block text-xs font-bold uppercase tracking-widest text-foreground">
+                  {t.contact.addressLabel}
+                </span>
+                {t.contact.addressLines.map((line) => (
+                  <span key={line} className="block">{line}</span>
+                ))}
+              </address>
+            </div>
 
             <div className="flex flex-col gap-5 mb-10">
               {t.contact.areas.map((item, idx) => (
@@ -108,7 +116,7 @@ export function ContactForm() {
                   <div className="w-1 bg-primary flex-shrink-0 rounded-full" />
                   <div>
                     <p className="font-medium text-sm text-foreground">{item.label}</p>
-                    <p className="text-sm text-muted-foreground font-light">{item.text}</p>
+                    <p className="text-base text-muted-foreground font-light">{item.text}</p>
                   </div>
                 </div>
               ))}
@@ -128,7 +136,7 @@ export function ContactForm() {
               <img
                 src={draftingIllustration}
                 alt="Drafting illustration"
-                className="block w-full h-[220px] sm:h-[260px] object-cover object-center"
+                className="block w-full h-auto"
               />
             </div>
           </motion.div>
@@ -139,7 +147,7 @@ export function ContactForm() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-6 lg:sticky lg:top-28 lg:self-start"
           >
             <div className="bg-card p-10 md:p-12 border border-border">
               {isSuccess ? (
@@ -262,19 +270,6 @@ export function ContactForm() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                       control={form.control}
-                      name="companyName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.companyName}</FormLabel>
-                          <FormControl>
-                            <Input placeholder={f.companyNamePlaceholder} className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
                       name="shareholder"
                       render={({ field }) => (
                         <FormItem>
@@ -294,9 +289,6 @@ export function ContactForm() {
                         </FormItem>
                       )}
                     />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                       control={form.control}
                       name="generation"
@@ -306,28 +298,6 @@ export function ContactForm() {
                           <FormControl>
                             <Input placeholder={f.generationPlaceholder} className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
                           </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="areaOfInterest"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.interest}</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger className="rounded-none bg-background border-border focus:ring-primary">
-                                <SelectValue placeholder={f.interestPlaceholder} />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent className="rounded-none">
-                              {f.interestOptions.map((opt) => (
-                                <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -358,7 +328,7 @@ export function ContactForm() {
 
                     <Button
                       type="submit"
-                      className="w-full rounded-none h-13 font-serif tracking-wide bg-primary text-primary-foreground hover:bg-primary/90"
+                      className="w-full rounded-none h-13 font-sans text-base font-semibold tracking-wide bg-primary text-primary-foreground hover:bg-primary/90"
                       disabled={isLoading}
                     >
                       {isLoading ? (

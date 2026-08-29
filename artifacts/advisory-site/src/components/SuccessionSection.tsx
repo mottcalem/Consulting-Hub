@@ -48,10 +48,10 @@ export function SuccessionSection() {
             <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-4 leading-tight">
               {t.succession.heading}
             </h2>
-            <p className="text-lg text-foreground/70 font-light leading-relaxed mb-4">
+            <p className="text-[20px] text-foreground/70 font-light leading-relaxed mb-4">
               {t.succession.p1}
             </p>
-            <p className="text-base text-foreground/65 font-light leading-relaxed mb-10">
+            <p className="text-[18px] text-foreground/65 font-light leading-relaxed mb-10">
               {t.succession.p2}
             </p>
 
@@ -68,7 +68,7 @@ export function SuccessionSection() {
                   <div className="w-1 bg-primary/40 flex-shrink-0 rounded-full mt-1" />
                   <div>
                     <h3 className="font-serif text-base font-semibold text-foreground mb-1">{topic.title}</h3>
-                    <p className="text-sm text-muted-foreground font-light leading-relaxed">{topic.desc}</p>
+                    <p className="text-base text-muted-foreground font-light leading-relaxed">{topic.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -77,7 +77,7 @@ export function SuccessionSection() {
             <div className="mt-12">
               <button
                 onClick={() => scrollTo("contact")}
-                className="px-8 py-4 bg-primary text-primary-foreground font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
+                className="px-8 py-4 bg-primary text-primary-foreground font-sans text-base font-semibold tracking-wide uppercase leading-snug hover:bg-primary/90 transition-colors"
               >
                 {t.succession.cta}
               </button>
