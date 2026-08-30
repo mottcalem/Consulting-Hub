@@ -27,7 +27,7 @@ import { Loader2, MapPin } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export function ContactForm() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const f = t.contact.fields;
 
   const formSchema = z.object({
@@ -99,7 +99,9 @@ export function ContactForm() {
             </p>
 
             <div className="flex gap-4 mb-10 text-foreground/70">
-              <MapPin className="mt-1 size-5 flex-shrink-0 text-primary" aria-hidden="true" />
+              {lang !== "tr" && (
+                <MapPin className="mt-1 size-5 flex-shrink-0 text-primary" aria-hidden="true" />
+              )}
               <address className="not-italic text-base font-light leading-relaxed">
                 <span className="mb-1 block text-xs font-bold uppercase tracking-widest text-foreground">
                   {t.contact.addressLabel}

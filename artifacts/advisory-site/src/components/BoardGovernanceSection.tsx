@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
-import familyAdvisorLogo from "@images/family-advisor-logo.png";
+import boardAdvisorLogo from "@images/board-advisor.png";
+import establishImage from "@images/establish.jpg";
 
 export function BoardGovernanceSection() {
   const { t } = useLanguage();
@@ -33,8 +34,8 @@ export function BoardGovernanceSection() {
           </div>
 
           <img
-            src={familyAdvisorLogo}
-            alt="Family Business Advisors"
+            src={boardAdvisorLogo}
+            alt="Board Business Advisors"
             className="mx-auto h-auto w-full max-w-[240px] md:max-w-[280px] lg:max-w-[320px]"
           />
         </motion.div>
@@ -66,6 +67,21 @@ export function BoardGovernanceSection() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto mb-6 w-full max-w-[650px] overflow-hidden"
+        >
+          <img
+            src={establishImage}
+            alt=""
+            aria-hidden="true"
+            className="block h-auto w-full"
+          />
+        </motion.div>
 
         <div className="mt-10 text-center">
           <button

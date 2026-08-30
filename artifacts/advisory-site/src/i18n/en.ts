@@ -275,7 +275,7 @@ export const en: Translations = {
     ],
     cta: "CALL FOR A CONFIDENTIAL DISCUSSION",
     quote:
-      "Trusted adviser to business families navigating succession, governance and board effectiveness.",
+      "Family businesses are the foundation and locomotive of the world economy. When well governed, the welfare of the country will increase, bringing economic development, employment and personal enrichment. I made it my mission to support business families with a vision to achieve sustainability.",
     imgAlt: "Dr. Haluk Alacaklıoğlu — Family Business Governance Advisor",
     timeline: [
       { period: "1979", role: "Bosphorus University- BA", org: "", type: "edu" },
@@ -387,7 +387,7 @@ export const en: Translations = {
       interest: "Area of Interest",
       interestPlaceholder: "Select area",
       message: "Message",
-      messagePlaceholder: "Briefly describe your situation or what you would like to discuss...",
+      messagePlaceholder: "",
       interestOptions: [
         { value: "family-governance", label: "Family & Shareholder Governance" },
         { value: "succession", label: "Succession Planning" },

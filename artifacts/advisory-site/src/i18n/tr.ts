@@ -15,7 +15,7 @@ export const tr: Translations = {
 
   // ── HERO ────────────────────────────────────────────────────────────
   hero: {
-    eyebrow: "Aile Şirketlerinin çözüm ortağı",
+    eyebrow: "Aile Şirketlerinin 2000’den bu yana 5 kıtada çözüm ortağı",
     headline:
       "Kurumsallaşırken",
     subheadline:
@@ -40,7 +40,7 @@ export const tr: Translations = {
       {
         number: "01",
         title: "",
-        desc: "Beklentileri netleştiren, aile üyelerinin ve hissedarların davranışlarına yön veren, uygulanabilir aile protokolleri, aile anayasası ve hissedarlar anlaşma ilkeleri oluşturuyoruz.",
+        desc: "Beklentileri netleştiren, aile üyelerinin ve hissedarların davranışlarına yön veren, uygulanabilir aile protokolleri, aile anayasası ve hissedarlar arası anlaşma ilkeleri oluşturuyoruz.",
       },
       {
         number: "02",
@@ -350,15 +350,10 @@ export const tr: Translations = {
   contact: {
     eyebrow: "İletişim",
     heading: "AİLE İŞLETME ÖNCELİKLERİNİZİ GÖRÜŞELİM.",
-    p1: "Özel bir ilk görüşme, önceliklerinizi netleştirmenize, durumunuzun risk yarattığı alanları belirlemenize ve size yardımcı olabilir miyim tespit etmenizi sağlayabilir.",
+    p1: "Özel bir görüşme, önceliklerinizi netleştirmenizi, risk alanlarınızı belirlemenizi, kısacası önünüzü görmenizi sağlayabilir.",
     p2: "Ailenizin ve şirketinizin önceliklerini birlikte değerlendirmek için gizlilik esaslı bir ön görüşme için arayın",
-    addressLabel: "Şirket adresi",
-    addressLines: [
-      "FAMILY BUSINESS GOVERNANCE, LLP",
-      "167–169 London Road",
-      "Kingston upon Thames, Surrey KT2 6PT",
-      "Birleşik Krallık",
-    ],
+    addressLabel: "",
+    addressLines: [],
     whatsapp: "WhatsApp ile İletişime Geçin",
     confidentiality: "Paylaştığınız bilgiler gizlilik esasına uygun olarak ele alınacaktır.",
     submitBtn: "Gizlilik Esaslı Ön Görüşme Talep Edin",
@@ -388,7 +383,7 @@ export const tr: Translations = {
       interest: "İlgi Alanınız",
       interestPlaceholder: "Alan seçin",
       message: "Mesajınız",
-      messagePlaceholder: "Durumunuzu veya görüşmek istediğiniz konuyu kısaca anlatın...",
+      messagePlaceholder: "",
       interestOptions: [
         { value: "family-governance", label: "Aile ve Hissedar Yönetimi" },
         { value: "succession", label: "Nesil Geçiş Planlaması" },
@@ -407,7 +402,7 @@ export const tr: Translations = {
   // ── FOOTER ───────────────────────────────────────────────────────────
   footer: {
     tagline: "Aile Şirketleri ve Kurumsal Yönetim Danışmanı",
-    desc: "2000'den bu yana danışmanlık pratiği. Beş kıtada aile yönetimi, nesiller arası geçiş, sahiplik ve yönetim kurulu etkinliği.",
+    desc: "2000'den bu yana beş kıtada aile yönetimi, nesiller arası geçiş, sahiplik ve yönetim kurulu etkinliği alanlarında yüzlerce aile şirketine danışmanlık.",
     navLabel: "Gezinti",
     contactLabel: "İletişim",
     contactDesc: "Aile şirketinizin önceliklerine ilişkin gizlilik esaslı bir ön görüşme için.",
