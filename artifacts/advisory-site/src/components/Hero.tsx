@@ -45,7 +45,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
         >
-          <p className="text-[10px] font-sans uppercase tracking-[0.22em] text-white/55 mb-3">
+          <p className="inline-flex w-fit border-l-2 border-primary pl-3 text-xs font-sans font-semibold uppercase tracking-[0.18em] leading-relaxed text-white mb-4 drop-shadow-sm">
             {t.hero.eyebrow}
           </p>
           <h1 className={`font-serif leading-[1.15] font-semibold text-white mb-5 ${lang === "tr" ? "text-[1.55rem]" : "text-[1.75rem]"}`}>
@@ -68,7 +68,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: "easeOut" }}
         >
-          <p className="text-xs font-sans uppercase tracking-[0.25em] text-white/60 mb-5">
+          <p className="inline-flex w-fit border-l-2 border-primary pl-4 text-sm lg:text-base font-sans font-semibold uppercase tracking-[0.18em] leading-relaxed text-white mb-6 drop-shadow-sm">
             {t.hero.eyebrow}
           </p>
           <h1 className={`font-serif leading-[1.12] font-semibold text-white mb-6 ${lang === "tr" ? "text-4xl lg:text-[2.75rem]" : "text-4xl lg:text-[3.2rem]"}`}>

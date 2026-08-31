@@ -53,13 +53,13 @@ export function BoardGovernanceSection() {
               {topic.heading && (
                 <h3 className="text-xl font-serif text-foreground mb-3">{topic.heading}</h3>
               )}
-              <p className="text-lg text-foreground/75 font-light italic leading-8 mb-7 border-l-2 border-primary/30 pl-4">
+              <p className="text-xl lg:text-[22px] text-foreground/90 font-normal italic leading-[1.6] mb-8 border-l-[3px] border-primary/40 pl-5">
                 {topic.question}
               </p>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-4">
                 {topic.items.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-base text-foreground/75 font-light leading-6">
-                    <span className="text-primary mt-[2px] flex-shrink-0 text-base">—</span>
+                  <li key={i} className="flex items-start gap-4 text-lg text-foreground/85 font-normal leading-[1.6]">
+                    <span className="text-primary mt-[2px] flex-shrink-0 text-lg">—</span>
                     {item}
                   </li>
                 ))}
@@ -73,13 +73,13 @@ export function BoardGovernanceSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mx-auto mb-6 w-full max-w-[650px] overflow-hidden"
+          className="mx-auto mb-6 w-full max-w-[500px]"
         >
           <img
             src={establishImage}
             alt=""
             aria-hidden="true"
-            className="block h-auto w-full"
+            className="block h-auto max-h-[520px] w-full object-contain"
           />
         </motion.div>
 

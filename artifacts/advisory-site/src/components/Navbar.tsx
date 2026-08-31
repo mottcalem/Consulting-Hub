@@ -26,6 +26,7 @@ export function Navbar() {
     { label: t.nav.services, action: () => scrollTo("services") },
     { label: t.nav.governance, action: () => scrollTo("governance") },
     { label: t.nav.board, action: () => scrollTo("board") },
+    { label: t.nav.notAlone, action: () => scrollTo("not-alone") },
     { label: t.nav.contact, action: () => scrollTo("contact") },
   ];
 
@@ -63,7 +64,7 @@ export function Navbar() {
           </button>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[hsl(0,0%,30%)] tracking-wide">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6 text-xs xl:text-sm font-medium text-[hsl(0,0%,30%)] tracking-wide">
             {navLinks.map((link) => (
               <button
                 key={link.label}

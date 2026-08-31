@@ -75,6 +75,7 @@ export interface Translations {
     governance: string;
     succession: string;
     board: string;
+    notAlone: string;
     contact: string;
     cta: string;
   };
@@ -167,6 +168,7 @@ export interface Translations {
     addressLabel: string;
     addressLines: string[];
     whatsapp: string;
+    youtube: string;
     confidentiality: string;
     submitBtn: string;
     successTitle: string;

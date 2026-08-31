@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { SiWhatsapp } from "react-icons/si";
+import { SiWhatsapp, SiYoutube } from "react-icons/si";
 import draftingIllustration from "@images/11.jpg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -124,15 +124,26 @@ export function ContactForm() {
               ))}
             </div>
 
-            <a
-              href="https://wa.me/905321234567"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#25D366] text-white px-7 py-3.5 text-sm font-medium hover:bg-[#20bd5a] transition-colors"
-            >
-              <SiWhatsapp size={20} />
-              {t.contact.whatsapp}
-            </a>
+            <div className="flex w-fit flex-col items-stretch gap-3">
+              <a
+                href="https://wa.me/905321234567"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-[#25D366] text-white px-7 py-3.5 text-sm font-medium hover:bg-[#20bd5a] transition-colors"
+              >
+                <SiWhatsapp size={20} />
+                {t.contact.whatsapp}
+              </a>
+              <a
+                href="https://www.youtube.com/@HalukAlacaklioglu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-[#FF0000] text-white px-7 py-3.5 text-sm font-medium hover:bg-[#d90000] transition-colors"
+              >
+                <SiYoutube size={20} />
+                {t.contact.youtube}
+              </a>
+            </div>
 
             <div className="mt-8 overflow-hidden border border-border bg-card">
               <img

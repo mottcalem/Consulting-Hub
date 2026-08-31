@@ -9,6 +9,7 @@ export const en: Translations = {
     governance: "Governance",
     succession: "Succession",
     board: "Board",
+    notAlone: "You Are Not Alone",
     contact: "Contact",
     cta: "Get in Touch",
   },
@@ -31,7 +32,7 @@ export const en: Translations = {
   // ── ADVISORY SERVICES ───────────────────────────────────────────────
   services: {
     eyebrow: "How I Help",
-    heading: "How I help family businesses create clarity, continuity, and confident decisions",
+    heading: "How I help family businesses create clarity, continuity, and make confident decisions",
     intro: "<p>Families call me when then need clarity and solutions for:</p><ul><li>family governance</li><li>succession planning and application</li><li>effective next gen development and guidance</li><li>business governance &amp; Board performance</li></ul><p>and the like</p>",
     cta: "Let us discuss your family business priorities.",
     items: [
@@ -359,6 +360,7 @@ export const en: Translations = {
       "United Kingdom",
     ],
     whatsapp: "Contact via WhatsApp",
+    youtube: "Visit the YouTube Channel",
     confidentiality: "Your information will be treated confidentially.",
     submitBtn: "Request a Confidential Preliminary Discussion",
     successTitle: "Thank You",

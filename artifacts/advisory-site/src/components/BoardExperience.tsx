@@ -31,7 +31,7 @@ export function BoardExperience() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-primary-foreground/20 border border-primary-foreground/20">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,3fr)_minmax(260px,2fr)] lg:grid-cols-[minmax(0,2fr)_minmax(300px,1fr)] gap-px bg-primary-foreground/20 border border-primary-foreground/20">
           {t.boardExperience.topics.map((topic, idx) => (
             <motion.div
               key={idx}
@@ -39,13 +39,13 @@ export function BoardExperience() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * idx }}
-              className="bg-primary p-10 lg:p-12"
+              className="bg-primary p-8 sm:p-10 lg:p-12 xl:p-14"
             >
-              <h3 className="text-xl font-serif mb-6 text-primary-foreground">{topic.heading}</h3>
-              <ul className="flex flex-col gap-3">
+              <h3 className="text-2xl font-serif mb-8 text-primary-foreground">{topic.heading}</h3>
+              <ul className="flex flex-col gap-4">
                 {topic.items.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-primary-foreground/75 font-light text-sm leading-relaxed">
-                    <span className="text-primary-foreground/40 mt-[3px] flex-shrink-0">—</span>
+                  <li key={i} className="flex items-start gap-4 text-primary-foreground/90 font-normal text-base lg:text-[18px] leading-[1.65]">
+                    <span className="text-primary-foreground/60 mt-[2px] flex-shrink-0">—</span>
                     {item}
                   </li>
                 ))}
