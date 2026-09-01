@@ -376,6 +376,8 @@ export const tr: Translations = {
       phonePlaceholder: "+90 5xx xxx xx xx",
       familyMember: "Şirket sahibi aile üyesi? / değil",
       familyMemberPlaceholder: "Seçin",
+      yes: "Evet",
+      no: "Hayır",
       companyName: "Şirket ismi",
       companyNamePlaceholder: "Şirket adınız",
       shareholder: "Hissedar / değil",

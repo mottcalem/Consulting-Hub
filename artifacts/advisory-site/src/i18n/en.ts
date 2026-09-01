@@ -380,6 +380,8 @@ export const en: Translations = {
       phonePlaceholder: "+1 (555) 123-4567",
       familyMember: "Family member / not family member",
       familyMemberPlaceholder: "Select",
+      yes: "Yes",
+      no: "No",
       companyName: "Company name",
       companyNamePlaceholder: "Your company name",
       shareholder: "Shareholder / not shareholder",

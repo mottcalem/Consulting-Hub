@@ -270,8 +270,8 @@ export function ContactForm() {
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent className="rounded-none">
-                              <SelectItem value="yes">Evet</SelectItem>
-                              <SelectItem value="no">Hayır</SelectItem>
+                              <SelectItem value="yes">{f.yes}</SelectItem>
+                              <SelectItem value="no">{f.no}</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -294,8 +294,8 @@ export function ContactForm() {
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent className="rounded-none">
-                              <SelectItem value="yes">Evet</SelectItem>
-                              <SelectItem value="no">Hayır</SelectItem>
+                              <SelectItem value="yes">{f.yes}</SelectItem>
+                              <SelectItem value="no">{f.no}</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />

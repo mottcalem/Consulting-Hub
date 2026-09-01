@@ -188,6 +188,8 @@ export interface Translations {
       phonePlaceholder: string;
       familyMember: string;
       familyMemberPlaceholder: string;
+      yes: string;
+      no: string;
       companyName: string;
       companyNamePlaceholder: string;
       shareholder: string;
