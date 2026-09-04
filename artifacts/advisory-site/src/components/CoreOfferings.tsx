@@ -41,7 +41,7 @@ export function CoreOfferings() {
                 0{idx + 1}
               </span>
               <h3 className="text-2xl font-serif mb-4 text-background">{area.heading}</h3>
-              <p className="text-background/70 font-light leading-relaxed text-sm mb-8">
+              <p className="text-background/70 font-light leading-relaxed text-base mb-8">
                 {area.description}
               </p>
 
@@ -56,7 +56,7 @@ export function CoreOfferings() {
 
               <button
                 onClick={() => scrollTo(area.anchor)}
-                className="text-sm font-medium text-primary border border-primary px-6 py-3 hover:bg-primary hover:text-white transition-colors tracking-wide uppercase font-serif mt-auto"
+                className="text-base font-semibold text-primary border border-primary px-6 py-3 hover:bg-primary hover:text-white transition-colors tracking-wide uppercase font-sans leading-snug mt-auto"
               >
                 {area.cta}
               </button>

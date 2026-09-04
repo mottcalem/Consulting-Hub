@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { SiWhatsapp } from "react-icons/si";
-import draftingIllustration from "@images/drafting.png";
+import { SiWhatsapp, SiYoutube } from "react-icons/si";
+import draftingIllustration from "@images/11.jpg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,11 +23,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Loader2 } from "lucide-react";
+import { Loader2, MapPin } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export function ContactForm() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const f = t.contact.fields;
 
   const formSchema = z.object({
@@ -37,15 +37,14 @@ export function ContactForm() {
     position: z.string().optional(),
     phone: z.string().optional(),
     familyMember: z.string().optional(),
-    companyName: z.string().optional(),
     shareholder: z.string().optional(),
     generation: z.string().optional(),
-    areaOfInterest: z.string().optional(),
     message: z.string().optional(),
   });
 
   const [isSuccess, setIsSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -56,20 +55,40 @@ export function ContactForm() {
       position: "",
       phone: "",
       familyMember: "",
-      companyName: "",
       shareholder: "",
       generation: "",
-      areaOfInterest: "",
       message: "",
     },
   });
 
-  function onSubmit(_values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
+    setSubmitError("");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        const result = await response.json().catch(() => null) as { message?: string } | null;
+        throw new Error(result?.message);
+      }
+
+      form.reset();
       setIsSuccess(true);
-    }, 1000);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error && error.message
+          ? error.message
+          : lang === "tr"
+            ? "Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin."
+            : "Your message could not be sent. Please try again later.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   const scrollTo = (id: string) => {
@@ -95,12 +114,26 @@ export function ContactForm() {
             <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-6 leading-tight">
               {t.contact.heading}
             </h2>
-            <p className="text-base text-foreground/70 font-light leading-relaxed mb-4">
+            <p className="text-[18px] text-foreground/70 font-light leading-relaxed mb-4">
               {t.contact.p1}
             </p>
-            <p className="text-base text-foreground/70 font-light leading-relaxed mb-10">
+            <p className="text-[18px] text-foreground/70 font-light leading-relaxed mb-10">
               {t.contact.p2}
             </p>
+
+            <div className="flex gap-4 mb-10 text-foreground/70">
+              {lang !== "tr" && (
+                <MapPin className="mt-1 size-5 flex-shrink-0 text-primary" aria-hidden="true" />
+              )}
+              <address className="not-italic text-base font-light leading-relaxed">
+                <span className="mb-1 block text-xs font-bold uppercase tracking-widest text-foreground">
+                  {t.contact.addressLabel}
+                </span>
+                {t.contact.addressLines.map((line) => (
+                  <span key={line} className="block">{line}</span>
+                ))}
+              </address>
+            </div>
 
             <div className="flex flex-col gap-5 mb-10">
               {t.contact.areas.map((item, idx) => (
@@ -108,27 +141,38 @@ export function ContactForm() {
                   <div className="w-1 bg-primary flex-shrink-0 rounded-full" />
                   <div>
                     <p className="font-medium text-sm text-foreground">{item.label}</p>
-                    <p className="text-sm text-muted-foreground font-light">{item.text}</p>
+                    <p className="text-base text-muted-foreground font-light">{item.text}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <a
-              href="https://wa.me/905321234567"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#25D366] text-white px-7 py-3.5 text-sm font-medium hover:bg-[#20bd5a] transition-colors"
-            >
-              <SiWhatsapp size={20} />
-              {t.contact.whatsapp}
-            </a>
+            <div className="flex w-fit flex-col items-stretch gap-3">
+              <a
+                href="https://wa.me/905321234567"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-[#25D366] text-white px-7 py-3.5 text-sm font-medium hover:bg-[#20bd5a] transition-colors"
+              >
+                <SiWhatsapp size={20} />
+                {t.contact.whatsapp}
+              </a>
+              <a
+                href="https://www.youtube.com/@HalukAlacaklioglu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-[#FF0000] text-white px-7 py-3.5 text-sm font-medium hover:bg-[#d90000] transition-colors"
+              >
+                <SiYoutube size={20} />
+                {t.contact.youtube}
+              </a>
+            </div>
 
             <div className="mt-8 overflow-hidden border border-border bg-card">
               <img
                 src={draftingIllustration}
                 alt="Drafting illustration"
-                className="block w-full h-[220px] sm:h-[260px] object-cover object-center"
+                className="block w-full h-auto"
               />
             </div>
           </motion.div>
@@ -139,7 +183,7 @@ export function ContactForm() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-6 lg:sticky lg:top-28 lg:self-start"
           >
             <div className="bg-card p-10 md:p-12 border border-border">
               {isSuccess ? (
@@ -249,8 +293,8 @@ export function ContactForm() {
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent className="rounded-none">
-                              <SelectItem value="yes">Evet</SelectItem>
-                              <SelectItem value="no">Hayır</SelectItem>
+                              <SelectItem value="yes">{f.yes}</SelectItem>
+                              <SelectItem value="no">{f.no}</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -260,19 +304,6 @@ export function ContactForm() {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <FormField
-                      control={form.control}
-                      name="companyName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.companyName}</FormLabel>
-                          <FormControl>
-                            <Input placeholder={f.companyNamePlaceholder} className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
                     <FormField
                       control={form.control}
                       name="shareholder"
@@ -286,17 +317,14 @@ export function ContactForm() {
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent className="rounded-none">
-                              <SelectItem value="yes">Evet</SelectItem>
-                              <SelectItem value="no">Hayır</SelectItem>
+                              <SelectItem value="yes">{f.yes}</SelectItem>
+                              <SelectItem value="no">{f.no}</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <FormField
                       control={form.control}
                       name="generation"
@@ -306,28 +334,6 @@ export function ContactForm() {
                           <FormControl>
                             <Input placeholder={f.generationPlaceholder} className="rounded-none bg-background border-border focus-visible:ring-primary" {...field} />
                           </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="areaOfInterest"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-foreground/70 uppercase tracking-wide text-xs">{f.interest}</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
-                            <FormControl>
-                              <SelectTrigger className="rounded-none bg-background border-border focus:ring-primary">
-                                <SelectValue placeholder={f.interestPlaceholder} />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent className="rounded-none">
-                              {f.interestOptions.map((opt) => (
-                                <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -356,9 +362,15 @@ export function ContactForm() {
                     {t.contact.confidentiality}
                   </p>
 
+                  {submitError && (
+                    <p role="alert" className="text-sm text-destructive">
+                      {submitError}
+                    </p>
+                  )}
+
                     <Button
                       type="submit"
-                      className="w-full rounded-none h-13 font-serif tracking-wide bg-primary text-primary-foreground hover:bg-primary/90"
+                      className="w-full rounded-none h-13 font-sans text-base font-semibold tracking-wide bg-primary text-primary-foreground hover:bg-primary/90"
                       disabled={isLoading}
                     >
                       {isLoading ? (

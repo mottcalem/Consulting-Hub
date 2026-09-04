@@ -9,13 +9,14 @@ export const tr: Translations = {
     governance: "Aile Yönetimi",
     succession: "Nesil Geçişi",
     board: "Yönetim Kurulu",
+    notAlone: "Yalnız Değilsiniz",
     contact: "İletişim",
     cta: "İletişime Geçin",
   },
 
   // ── HERO ────────────────────────────────────────────────────────────
   hero: {
-    eyebrow: "Aile Şirketlerinin çözüm ortağı",
+    eyebrow: "Aile Şirketlerinin 2000’den bu yana 5 kıtada çözüm ortağı",
     headline:
       "Kurumsallaşırken",
     subheadline:
@@ -40,7 +41,7 @@ export const tr: Translations = {
       {
         number: "01",
         title: "",
-        desc: "Beklentileri netleştiren, aile üyelerinin ve hissedarların davranışlarına yön veren, uygulanabilir aile protokolleri, aile anayasası ve hissedarlar anlaşma ilkeleri oluşturuyoruz.",
+        desc: "Beklentileri netleştiren, aile üyelerinin ve hissedarların davranışlarına yön veren, uygulanabilir aile protokolleri, aile anayasası ve hissedarlar arası anlaşma ilkeleri oluşturuyoruz.",
       },
       {
         number: "02",
@@ -143,7 +144,7 @@ export const tr: Translations = {
 
   // ── BOARD EXPERIENCE (Aile ve Hissedar Yönetimi) ────────────────────
   boardExperience: {
-    eyebrow: "Aile ve Hissedar Yönetimi",
+    eyebrow: "ŞİRKET SAHİBİ AİLENİN KURUMSALLAŞMASI",
     heading: "Sizi hangi konular en fazla düşündürüyor?",
     intro:
       "Aileler çoğunlukla üç kritik konuda netlik aradıklarında benimle iletişime geçiyor: aile ve hissedar arası dinamikler, nesiller arası geçiş ve gelecek neslin gelişimi, şirket ve yönetim kurulu kurumsal yönetimi.",
@@ -155,7 +156,7 @@ export const tr: Translations = {
           "Aile üyelerimin gerçek beklentilerini, umutlarını, hedef ve endişelerini nasıl netleştirebilirim?",
           "Aile anayasasına ihtiyacımız var mı? Varsa hangi model ailemize uygundur, hangi ilkeleri içermeli ve uygulamada nasıl işler hale gelmelidir?",
           "Gelecek nesle geçişi nasıl planlamalıyım, onları sorumlu sahipler olarak nasıl hazırlayabilirim? Gelecek neslin liderlerini nasıl seçip hazırlarım?",
-          "Aile büyüdükçe aile üyelerimizin istihdam, çelişkileri önleme, ödüllendirme ve paylaşım gibi kritik politikalar nasıl olmalı?",
+          "Aile büyüdükçe istihdam, çelişkileri önleme, ödüllendirme ve paylaşım gibi kritik politikalar nasıl olmalı?",
           "Aile ve işin karar alma organlarında kimler ve hangi kriterlere göre yer almalıdır?",
           "“Hissedarlar Sözleşmemiz” hangi politikaları ve ilkeleri içermelidir?",
           "İşletmemiz ve ailemiz için “evlilikle aileye katılanlara” nasıl bir yaklaşım sergilemeliyiz?",
@@ -163,7 +164,7 @@ export const tr: Translations = {
           "Ayrılmak isteyen hissedarlara adil çözümler nasıl sunabiliriz?",
           "Kurumsal yapımızda 'evlilikle aileye katılanlar'ile ilgili ilke ve kurallar neler olmalı?",
           "Aile bireyleri arasında ve işte çalışanlar ile iletişimi ve güveni nasıl güçlendiririz?",
-          "Ayrılmak isteyen hissedarlara ve işimiz için adil çözümler nasıl oluşturabiliriz?"
+          "Ayrılmak isteyen hissedarlar ve işimiz için adil çözümler nasıl oluşturabiliriz?"
         ],
       },
     ],
@@ -212,7 +213,7 @@ export const tr: Translations = {
       {
         heading: "",
         question:
-          "Bizim şirketin kültürüne en uygun hangi kurumsal “uygulamalar” neler?",
+          "Şirketimizin kültür ve seviyesine en uygun Kurumsal Yönetim sistemi nedir?",
         items: [
           "Şirketimi kurumsallaştırırken kişisel ve ailevi değerleri, girişimcilik ruhunu nasıl koruyabilirim?",
         ],
@@ -350,9 +351,12 @@ export const tr: Translations = {
   contact: {
     eyebrow: "İletişim",
     heading: "AİLE İŞLETME ÖNCELİKLERİNİZİ GÖRÜŞELİM.",
-    p1: "Özel bir ilk görüşme, önceliklerinizi netleştirmenize, durumunuzun risk yarattığı alanları belirlemenize ve size yardımcı olabilir miyim tespit etmenizi sağlayabilir.",
+    p1: "Özel bir görüşme, önceliklerinizi netleştirmenizi, risk alanlarınızı belirlemenizi, kısacası önünüzü görmenizi sağlayabilir.",
     p2: "Ailenizin ve şirketinizin önceliklerini birlikte değerlendirmek için gizlilik esaslı bir ön görüşme için arayın",
+    addressLabel: "",
+    addressLines: [],
     whatsapp: "WhatsApp ile İletişime Geçin",
+    youtube: "YouTube Kanalını Ziyaret Edin",
     confidentiality: "Paylaştığınız bilgiler gizlilik esasına uygun olarak ele alınacaktır.",
     submitBtn: "Gizlilik Esaslı Ön Görüşme Talep Edin",
     successTitle: "Teşekkür Ederiz",
@@ -372,6 +376,8 @@ export const tr: Translations = {
       phonePlaceholder: "+90 5xx xxx xx xx",
       familyMember: "Şirket sahibi aile üyesi? / değil",
       familyMemberPlaceholder: "Seçin",
+      yes: "Evet",
+      no: "Hayır",
       companyName: "Şirket ismi",
       companyNamePlaceholder: "Şirket adınız",
       shareholder: "Hissedar / değil",
@@ -381,7 +387,7 @@ export const tr: Translations = {
       interest: "İlgi Alanınız",
       interestPlaceholder: "Alan seçin",
       message: "Mesajınız",
-      messagePlaceholder: "Durumunuzu veya görüşmek istediğiniz konuyu kısaca anlatın...",
+      messagePlaceholder: "",
       interestOptions: [
         { value: "family-governance", label: "Aile ve Hissedar Yönetimi" },
         { value: "succession", label: "Nesil Geçiş Planlaması" },
@@ -400,7 +406,7 @@ export const tr: Translations = {
   // ── FOOTER ───────────────────────────────────────────────────────────
   footer: {
     tagline: "Aile Şirketleri ve Kurumsal Yönetim Danışmanı",
-    desc: "2000'den bu yana danışmanlık pratiği. Beş kıtada aile yönetimi, nesiller arası geçiş, sahiplik ve yönetim kurulu etkinliği.",
+    desc: "2000'den bu yana beş kıtada aile yönetimi, nesiller arası geçiş, sahiplik ve yönetim kurulu etkinliği alanlarında yüzlerce aile şirketine danışmanlık.",
     navLabel: "Gezinti",
     contactLabel: "İletişim",
     contactDesc: "Aile şirketinizin önceliklerine ilişkin gizlilik esaslı bir ön görüşme için.",

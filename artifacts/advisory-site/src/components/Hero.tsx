@@ -45,7 +45,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
         >
-          <p className="text-[10px] font-sans uppercase tracking-[0.22em] text-white/55 mb-3">
+          <p className="inline-flex w-fit border-l-2 border-primary pl-3 text-xs font-sans font-semibold uppercase tracking-[0.18em] leading-relaxed text-white mb-4 drop-shadow-sm">
             {t.hero.eyebrow}
           </p>
           <h1 className={`font-serif leading-[1.15] font-semibold text-white mb-5 ${lang === "tr" ? "text-[1.55rem]" : "text-[1.75rem]"}`}>
@@ -53,7 +53,7 @@ export function Hero() {
           </h1>
           <button
             onClick={() => scrollTo("contact")}
-            className="w-full py-3.5 bg-primary text-primary-foreground font-serif text-xs tracking-widest uppercase hover:bg-primary/90 transition-colors"
+            className="w-full py-3.5 bg-primary text-primary-foreground font-sans text-sm font-semibold tracking-wide uppercase leading-snug hover:bg-primary/90 transition-colors"
           >
             <span dangerouslySetInnerHTML={{ __html: t.hero.ctaPrimary }} />
           </button>
@@ -68,20 +68,20 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: "easeOut" }}
         >
-          <p className="text-xs font-sans uppercase tracking-[0.25em] text-white/60 mb-5">
+          <p className="inline-flex w-fit border-l-2 border-primary pl-4 text-sm lg:text-base font-sans font-semibold uppercase tracking-[0.18em] leading-relaxed text-white mb-6 drop-shadow-sm">
             {t.hero.eyebrow}
           </p>
           <h1 className={`font-serif leading-[1.12] font-semibold text-white mb-6 ${lang === "tr" ? "text-4xl lg:text-[2.75rem]" : "text-4xl lg:text-[3.2rem]"}`}>
             {t.hero.headline}
           </h1>
           <div
-            className="font-sans text-base md:text-lg text-white/75 leading-relaxed mb-10 space-y-3"
+            className="font-sans text-[18px] md:text-[20px] text-white/75 leading-relaxed mb-10 space-y-3"
             dangerouslySetInnerHTML={{ __html: t.hero.subheadline }}
           />
           <div className="flex flex-row gap-4">
             <button
               onClick={() => scrollTo("contact")}
-              className="px-8 py-4 bg-primary text-primary-foreground text-left font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
+              className="px-8 py-4 bg-primary text-primary-foreground text-left font-sans text-base font-semibold tracking-wide uppercase leading-snug hover:bg-primary/90 transition-colors"
             >
               <span dangerouslySetInnerHTML={{ __html: t.hero.ctaPrimary }} />
             </button>

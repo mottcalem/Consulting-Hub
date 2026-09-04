@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
-import drHalukPhoto from "@/assets/dr-haluk-elde-fincan.jpg";
+import drHalukPhoto from "@images/haluk-bey-kapi.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export function AboutDrHaluk() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const highlightedFirmName = "Family Business Governance, LLP, UK an";
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -38,11 +39,19 @@ export function AboutDrHaluk() {
                   key={idx}
                   className={`font-light leading-[1.85] ${
                     idx === 0
-                      ? "text-lg text-foreground/80 border-l-2 border-primary/35 pl-5"
-                      : "text-base text-foreground/65"
+                      ? "text-[20px] text-foreground/80 border-l-2 border-primary/35 pl-5"
+                      : "text-[18px] text-foreground/65"
                   }`}
                 >
-                  {paragraph}
+                  {lang === "en" && paragraph.includes(highlightedFirmName) ? (
+                    <>
+                      {paragraph.split(highlightedFirmName)[0]}
+                      <strong className="font-bold text-primary">{highlightedFirmName}</strong>
+                      {paragraph.split(highlightedFirmName)[1]}
+                    </>
+                  ) : (
+                    paragraph
+                  )}
                 </p>
               ))}
             </div>
@@ -51,7 +60,7 @@ export function AboutDrHaluk() {
             <div className="mt-12">
               <button
                 onClick={() => scrollTo("contact")}
-                className="px-8 py-4 bg-primary text-primary-foreground font-serif text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
+                className="px-8 py-4 bg-primary text-primary-foreground font-sans text-base font-semibold tracking-wide uppercase leading-snug hover:bg-primary/90 transition-colors"
               >
                 {t.about.cta}
               </button>
@@ -76,9 +85,9 @@ export function AboutDrHaluk() {
               {/* Quote badge */}
               <div className="mt-8 p-6 bg-card border border-border">
                 <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary mb-3">
-                  Benim misyonum
+                  {lang === "en" ? "My Mission" : "Benim misyonum"}
                 </p>
-                <p className="font-serif italic text-base text-foreground/80 leading-relaxed">
+                <p className="font-serif italic text-[18px] text-foreground/80 leading-relaxed">
                   "{t.about.quote}"
                 </p>
                 <p className="mt-4 text-xs font-medium text-primary uppercase tracking-widest">
