@@ -44,6 +44,7 @@ export function ContactForm() {
 
   const [isSuccess, setIsSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -60,12 +61,34 @@ export function ContactForm() {
     },
   });
 
-  function onSubmit(_values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
+    setSubmitError("");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        const result = await response.json().catch(() => null) as { message?: string } | null;
+        throw new Error(result?.message);
+      }
+
+      form.reset();
       setIsSuccess(true);
-    }, 1000);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error && error.message
+          ? error.message
+          : lang === "tr"
+            ? "Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin."
+            : "Your message could not be sent. Please try again later.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   const scrollTo = (id: string) => {
@@ -338,6 +361,12 @@ export function ContactForm() {
                   <p className="text-xs text-muted-foreground font-light">
                     {t.contact.confidentiality}
                   </p>
+
+                  {submitError && (
+                    <p role="alert" className="text-sm text-destructive">
+                      {submitError}
+                    </p>
+                  )}
 
                     <Button
                       type="submit"
