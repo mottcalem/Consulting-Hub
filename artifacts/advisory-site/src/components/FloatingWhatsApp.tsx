@@ -14,7 +14,7 @@ export function FloatingWhatsApp() {
         <SiYoutube size={32} />
       </a>
       <a
-        href="https://wa.me/905321234567"
+        href="https://wa.me/905322316609"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center rounded-full bg-[#25D366] p-4 text-white shadow-2xl transition-transform hover:scale-110 hover:bg-[#20bd5a]"

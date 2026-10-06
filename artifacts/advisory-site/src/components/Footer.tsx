@@ -60,7 +60,7 @@ export function Footer() {
               {t.footer.ctaBtn}
             </button>
             <a
-              href="https://wa.me/905321234567"
+              href="https://wa.me/905322316609"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-background/60 hover:text-[#25D366] transition-colors text-sm"
