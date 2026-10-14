@@ -1,3 +1,4 @@
+import faqContent from "./faq-content.json";
 import type { Translations } from "./types";
 
 export const tr: Translations = {
@@ -9,7 +10,7 @@ export const tr: Translations = {
     governance: "Aile Yönetimi",
     succession: "Nesil Geçişi",
     board: "Yönetim Kurulu",
-    notAlone: "Yalnız Değilsiniz",
+    faq: "Sık Sorulan Sorular",
     contact: "İletişim",
     cta: "İletişime Geçin",
   },
@@ -319,32 +320,7 @@ export const tr: Translations = {
     intro:
       "Danışmanlık görüşmesi düşünen aile şirketi sahiplerinin, hissedarların ve yönetim kurulu üyelerinin sıkça sorduğu sorular.",
     cta: "İletişime Geçin",
-    items: [
-      {
-        q: "Genellikle kimlerle çalışıyorsunuz?",
-        a: "Aile şirketi sahipleri, hissedarlar, gelecek nesil aile üyeleri, yönetim kurulu üyeleri ve özel ya da aile kontrolündeki şirketlerin üst düzey yöneticileri. Çoğu müşterim; kurumsal yönetim, nesiller arası geçiş, sahiplik yapısı veya önemli bir geçiş süreci konusunda net olmadığı dönemlerde benimle iletişime geçiyor.",
-      },
-      {
-        q: "Uluslararası aile şirketleriyle çalışıyor musunuz?",
-        a: "Evet. Avrupa, Orta Doğu, Asya, Afrika ve Amerika kıtalarında yüzlerce aile şirketiyle çalıştım. Çalışmalarım özünde kültürlerarasıdır; farklı sahiplik kültürlerini ve yönetim geleneklerini iyi tanıyor, bu dinamikleri etkin şekilde yönetebiliyorum.",
-      },
-      {
-        q: "Danışmanlık süreci hangi konuları kapsayabilir?",
-        a: "Aile yönetimi ve aile anayasası oluşturma, nesiller arası geçiş planlaması, gelecek neslin gelişimi, yönetim kurulu yapısı ve etkinliği, hissedar yönetimi, sahiplik devri, aile içi çatışma yönetimi ve şirketin kurumsallaşması.",
-      },
-      {
-        q: "Her danışmanlık süreci aileye özel mi tasarlanıyor?",
-        a: "Evet. Her aile şirketi kendine özgüdür. Standart programlar veya şablonlar kullanmıyorum. Yaklaşımım her zaman ailenin özgün sahiplik yapısını, ilişkilerini, kültürünü ve uzun vadeli önceliklerini anlamakla başlar.",
-      },
-      {
-        q: "İlk görüşme nasıl geçiyor?",
-        a: "Gizlilik esaslı bir ön görüşmedir; herhangi bir taahhüt gerektirmez. Aile şirketinizin mevcut durumunu, karşılaştığınız zorlukları ve kararları birlikte değerlendiriyor, danışmanlık desteğinin faydalı olup olmayacağını tartışıyoruz. Bu görüşmeyi talep etmek için iletişim formunu kullanabilirsiniz.",
-      },
-      {
-        q: "Müşterilerle nasıl çalışıyorsunuz?",
-        a: "Danışmanlık kapsamına bağlı olarak aile ile bütün olarak, bireysel hissedarlarla, yönetim kurulu ile veya gelecek nesil gibi belirli aile üyeleriyle çalışıyorum. Süreç; odaklı kısa vadeli bir danışmanlık görevinden uzun vadeli bir danışmanlık ilişkisine kadar farklı biçimlerde şekillenebilir.",
-      },
-    ],
+    items: faqContent.tr,
   },
 
   // ── CONTACT FORM ─────────────────────────────────────────────────────

@@ -75,7 +75,7 @@ export interface Translations {
     governance: string;
     succession: string;
     board: string;
-    notAlone: string;
+    faq: string;
     contact: string;
     cta: string;
   };

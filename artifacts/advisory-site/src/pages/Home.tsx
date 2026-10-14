@@ -3,7 +3,7 @@ import { Hero } from "@/components/Hero";
 import { AdvisoryServices } from "@/components/AdvisoryServices";
 import { BoardExperience } from "@/components/BoardExperience";
 import { BoardGovernanceSection } from "@/components/BoardGovernanceSection";
-import { Testimonial } from "@/components/Testimonial";
+import { FaqSection } from "@/components/FaqSection";
 import { AboutDrHaluk } from "@/components/AboutDrHaluk";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
@@ -26,8 +26,8 @@ export default function Home() {
         {/* Business & Board Governance */}
         <BoardGovernanceSection />
 
-        {/* Why Work With Me */}
-        <Testimonial />
+        {/* Frequently asked questions */}
+        <FaqSection />
 
         {/* About Dr. Haluk — timeline profile */}
         <AboutDrHaluk />
