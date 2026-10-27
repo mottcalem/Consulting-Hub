@@ -1,11 +1,15 @@
 import { Router, type IRouter } from "express";
 import nodemailer from "nodemailer";
 import { logger } from "../lib/logger";
+import { allowSubmission, createChallenge, verifyChallenge } from "../lib/contact-protection";
 
 const router: IRouter = Router();
 const MAIL_TO = process.env["MAIL_TO"] || "dgn.ugur@gmail.com";
 
 type ContactBody = {
+  captchaId?: unknown;
+  captchaAnswer?: unknown;
+  website?: unknown;
   fullName?: unknown;
   email?: unknown;
   company?: unknown;
@@ -29,6 +33,16 @@ const escapeHtml = (value: string) =>
     '"': "&quot;",
   })[char]!);
 
+router.get("/contact/challenge", (_req, res) => {
+  res.setHeader("Cache-Control", "no-store");
+  const challenge = createChallenge();
+  if (!challenge) {
+    res.status(429).json({ message: "Lütfen daha sonra tekrar deneyin." });
+    return;
+  }
+  res.json(challenge);
+});
+
 router.post("/contact", async (req, res) => {
   const body = (req.body || {}) as ContactBody;
   const fullName = text(body.fullName, 120);
@@ -36,6 +50,17 @@ router.post("/contact", async (req, res) => {
 
   if (fullName.length < 2 || !/^\S+@\S+\.\S+$/.test(email)) {
     res.status(400).json({ message: "Geçerli ad soyad ve e-posta adresi gereklidir." });
+    return;
+  }
+
+  if (!verifyChallenge(body.captchaId, body.captchaAnswer) ||
+      (body.website !== undefined && body.website !== "")) {
+    res.status(400).json({ message: "Güvenlik doğrulaması başarısız. Lütfen yeni soruyu yanıtlayın." });
+    return;
+  }
+
+  if (!allowSubmission(email)) {
+    res.status(429).json({ message: "Çok fazla gönderim yaptınız. Lütfen 15 dakika sonra tekrar deneyin." });
     return;
   }
 

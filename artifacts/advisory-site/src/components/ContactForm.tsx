@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -42,6 +42,28 @@ export function ContactForm() {
     message: z.string().optional(),
   });
 
+  const [challenge, setChallenge] = useState<{ id: string; question: string } | null>(null);
+  const [captchaAnswer, setCaptchaAnswer] = useState("");
+  const [captchaError, setCaptchaError] = useState(false);
+  const [website, setWebsite] = useState("");
+
+  async function loadChallenge() {
+    setChallenge(null);
+    setCaptchaAnswer("");
+    setCaptchaError(false);
+    try {
+      const response = await fetch("/api/contact/challenge", { cache: "no-store" });
+      if (!response.ok) throw new Error("Challenge unavailable");
+      const result = await response.json();
+      if (typeof result.id !== "string" || typeof result.question !== "string") throw new Error("Invalid challenge");
+      setChallenge(result);
+    } catch {
+      setCaptchaError(true);
+    }
+  }
+
+  useEffect(() => { void loadChallenge(); }, []);
+
   const [isSuccess, setIsSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -62,13 +84,14 @@ export function ContactForm() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!challenge || !captchaAnswer.trim()) return;
     setIsLoading(true);
     setSubmitError("");
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, captchaId: challenge.id, captchaAnswer, website }),
       });
 
       if (!response.ok) {
@@ -79,6 +102,7 @@ export function ContactForm() {
       form.reset();
       setIsSuccess(true);
     } catch (error) {
+      void loadChallenge();
       setSubmitError(
         error instanceof Error && error.message
           ? error.message
@@ -200,7 +224,7 @@ export function ContactForm() {
                   <Button
                     variant="outline"
                     className="mt-8 rounded-none border-primary text-primary"
-                    onClick={() => setIsSuccess(false)}
+                    onClick={() => { setIsSuccess(false); setWebsite(""); void loadChallenge(); }}
                   >
                     {t.contact.sendAnother}
                   </Button>
@@ -362,6 +386,33 @@ export function ContactForm() {
                     {t.contact.confidentiality}
                   </p>
 
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="contact-website">Website</label>
+                    <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="contact-captcha" className="block text-xs text-foreground/70 uppercase tracking-wide">
+                      {lang === "tr" ? "Güvenlik doğrulaması" : "Security check"} *
+                    </label>
+                    {challenge ? (
+                      <div className="flex flex-wrap items-center gap-3">
+                        <label htmlFor="contact-captcha" className="text-sm font-medium">{challenge.question}</label>
+                        <Input id="contact-captcha" name="captchaAnswer" inputMode="numeric" autoComplete="off" required maxLength={3} value={captchaAnswer} onChange={(event) => setCaptchaAnswer(event.target.value)} className="w-24 rounded-none bg-background border-border" />
+                        <button type="button" disabled={isLoading} onClick={() => void loadChallenge()} className="text-xs text-primary underline">
+                          {lang === "tr" ? "Yeni soru" : "New question"}
+                        </button>
+                      </div>
+                    ) : (
+                      <p role="status" className="text-sm text-muted-foreground">
+                        {captchaError
+                          ? (lang === "tr" ? "Doğrulama yüklenemedi. " : "Could not load verification. ")
+                          : (lang === "tr" ? "Doğrulama yükleniyor…" : "Loading verification…")}
+                        {captchaError && <button type="button" onClick={() => void loadChallenge()} className="text-primary underline">{lang === "tr" ? "Tekrar dene" : "Retry"}</button>}
+                      </p>
+                    )}
+                  </div>
+
                   {submitError && (
                     <p role="alert" className="text-sm text-destructive">
                       {submitError}
@@ -371,7 +422,7 @@ export function ContactForm() {
                     <Button
                       type="submit"
                       className="w-full rounded-none h-13 font-sans text-base font-semibold tracking-wide bg-primary text-primary-foreground hover:bg-primary/90"
-                      disabled={isLoading}
+                      disabled={isLoading || !challenge || !captchaAnswer.trim()}
                     >
                       {isLoading ? (
                         <Loader2 className="mr-2 h-5 w-5 animate-spin" />
